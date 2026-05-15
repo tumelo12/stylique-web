@@ -20,6 +20,9 @@ export const metadata: Metadata = {
     "hair stylists Pretoria",
     "beauty professionals South Africa",
   ],
+  alternates: {
+    canonical: "https://stylique.co.za",
+  },
   openGraph: {
     title: "Stylique | Pretoria Beauty Marketplace",
     description:
@@ -28,12 +31,21 @@ export const metadata: Metadata = {
     siteName: "Stylique",
     locale: "en_ZA",
     type: "website",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Stylique Pretoria Beauty Marketplace",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Stylique | Pretoria Beauty Marketplace",
     description:
       "Join the waitlist for Stylique, a premium Pretoria-first beauty marketplace launching Pretoria-first.",
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,
