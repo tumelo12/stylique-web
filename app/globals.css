@@ -5,8 +5,8 @@
   --foreground: #111111;
   --muted: #666666;
   --border: #efefef;
-  --blush: #f7e4e7;
-  --light-pink: #fceff1;
+  --soft-surface: #f7f7f7;
+  --soft-highlight: #eeeeee;
 }
 
 * {
@@ -37,8 +37,8 @@ textarea {
 }
 
 ::selection {
-  background: var(--blush);
-  color: var(--foreground);
+  background: #111111;
+  color: #ffffff;
 }
 
 .stylique-container {
