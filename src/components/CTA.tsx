@@ -1,49 +1,76 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 
-import { WaitlistForm } from "./WaitlistForm";
+type CTAProps = {
+  onJoinWaitlist?: () => void;
+  onBecomeVendor?: () => void;
+};
 
-export function CTA() {
+export function CTA({
+  onJoinWaitlist,
+  onBecomeVendor,
+}: CTAProps) {
   return (
-    <section
-      id="waitlist"
-      className="scroll-mt-28 px-6 pb-16 lg:px-8 lg:pb-24"
-    >
-      <motion.div
-        initial={{ opacity: 0, y: 22 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.55 }}
-        className="relative mx-auto max-w-7xl overflow-hidden rounded-[2.5rem] bg-[#111111] px-6 py-8 text-white shadow-[0_30px_90px_rgba(0,0,0,0.18)] lg:px-10 lg:py-12"
-      >
-        <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-white/10 blur-3xl" />
-        <div className="pointer-events-none absolute -bottom-32 left-20 h-72 w-72 rounded-full bg-white/5 blur-3xl" />
+    <section className="bg-white pb-20 sm:pb-24 lg:pb-28">
+      <div className="stylique-container">
+        <motion.div
+          initial={{ opacity: 0, y: 22 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.55 }}
+          className="relative overflow-hidden rounded-[2.5rem] bg-[#F6F6F6] p-8 shadow-xl shadow-black/5 sm:p-10 lg:p-14"
+        >
+          <div className="absolute -left-16 -top-16 h-48 w-48 rounded-full bg-white/70 blur-2xl" />
 
-        <div className="relative grid items-center gap-8 lg:grid-cols-[1fr_420px]">
-          <div>
-            <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs font-semibold text-white/80 backdrop-blur">
-              <Sparkles className="h-4 w-4 text-white" />
-              Pretoria launch coming soon
+          <div className="absolute -bottom-20 -right-16 h-64 w-64 rounded-full bg-black/[0.03] blur-2xl" />
+
+          <div className="relative grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
+            <div>
+              <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-sm">
+                <Sparkles size={15} />
+
+                <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#666666]">
+                  Glow starts here
+                </span>
+              </div>
+
+              <h2 className="font-serif text-4xl font-bold tracking-tight text-[#111111] sm:text-5xl">
+                Ready to glow?
+              </h2>
+
+              <p className="mt-4 max-w-2xl text-base leading-8 text-[#666666]">
+                Be among the first customers and beauty professionals joining
+Stylique before launch in Pretoria.
+              </p>
             </div>
 
-            <h2 className="max-w-2xl text-4xl font-extrabold tracking-tight text-white md:text-5xl">
-              Join the Stylique waitlist.
-            </h2>
+            <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
+              <button
+                type="button"
+                onClick={onJoinWaitlist}
+                className="black-button group"
+              >
+                Join Waitlist
 
-            <p className="mt-4 max-w-2xl text-base leading-relaxed text-white/65">
-              We’re preparing Stylique for customers and beauty professionals
-              across Pretoria. Join the waitlist and be among the first to know
-              when we launch.
-            </p>
+                <ArrowRight
+                  size={17}
+                  className="ml-2 transition-transform group-hover:translate-x-1"
+                />
+              </button>
+
+              <button
+                type="button"
+                onClick={onBecomeVendor}
+                className="light-button"
+              >
+                Become a Vendor
+              </button>
+            </div>
           </div>
-
-          <div className="rounded-[2.2rem] border border-white/10 bg-white/5 p-2 backdrop-blur-xl">
-  <WaitlistForm />
-</div>
-        </div>
-      </motion.div>
+        </motion.div>
+      </div>
     </section>
   );
 }

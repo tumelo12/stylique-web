@@ -2,22 +2,25 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export function WaitlistForm() {
-  const [role, setRole] = useState("");
-  const [submitted, setSubmitted] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [error, setError] = useState("");
+  const [role, setRole] = useState(() => {
+    if (typeof window === "undefined") {
+      return "";
+    }
 
-  useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const requestedRole = params.get("role");
 
-    if (requestedRole === "vendor" || requestedRole === "customer") {
-      setRole(requestedRole);
-    }
-  }, []);
+    return requestedRole === "vendor" || requestedRole === "customer"
+      ? requestedRole
+      : "";
+  });
+
+  const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState("");
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -108,9 +111,21 @@ export function WaitlistForm() {
       </div>
 
       <div className="grid gap-3">
-        <input required name="name" type="text" placeholder="Your name" className={inputClass} />
+        <input
+          required
+          name="name"
+          type="text"
+          placeholder="Your name"
+          className={inputClass}
+        />
 
-        <input required name="email" type="email" placeholder="Email address" className={inputClass} />
+        <input
+          required
+          name="email"
+          type="email"
+          placeholder="Email address"
+          className={inputClass}
+        />
 
         <select
           required
@@ -122,11 +137,20 @@ export function WaitlistForm() {
           <option value="" disabled>
             I’m joining as...
           </option>
+
           <option value="customer">Customer</option>
-          <option value="vendor">Beauty professional / Vendor</option>
+
+          <option value="vendor">
+            Beauty professional / Vendor
+          </option>
         </select>
 
-        <input name="area" type="text" placeholder="Area in Pretoria" className={inputClass} />
+        <input
+          name="area"
+          type="text"
+          placeholder="Area in Pretoria"
+          className={inputClass}
+        />
 
         {error && (
           <p className="rounded-2xl border border-red-100 bg-red-50 px-4 py-3 text-sm text-red-600">
@@ -140,6 +164,7 @@ export function WaitlistForm() {
           className="group mt-2 inline-flex h-12 items-center justify-center gap-2 rounded-2xl bg-[#111111] px-5 text-sm font-bold text-white shadow-[0_18px_45px_rgba(0,0,0,0.24)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-black disabled:cursor-not-allowed disabled:opacity-60"
         >
           {isSubmitting ? "Joining..." : "Join Waitlist"}
+
           <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
         </button>
       </div>

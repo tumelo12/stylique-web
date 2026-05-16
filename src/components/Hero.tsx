@@ -1,146 +1,175 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { CalendarCheck, MessageCircle, Sparkles, Star } from "lucide-react";
+import { ArrowRight, Play, Sparkles, Star } from "lucide-react";
+import Image from "next/image";
 
-export function Hero() {
+type HeroProps = {
+  onJoinWaitlist?: () => void;
+  onBecomeVendor?: () => void;
+};
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0 },
+};
+
+export function Hero({ onJoinWaitlist, onBecomeVendor }: HeroProps) {
   return (
-    <section className="relative overflow-hidden px-6 py-16 lg:px-8 lg:py-24">
-      <div className="pointer-events-none absolute left-0 top-10 h-72 w-72 rounded-full bg-neutral-200/70 blur-3xl" />
-      <div className="pointer-events-none absolute bottom-10 right-0 h-96 w-96 rounded-full bg-neutral-300/30 blur-3xl" />
+    <section
+      id="home"
+      className="relative overflow-hidden bg-white pt-28 sm:pt-32 lg:pt-36"
+    >
+      <div className="absolute left-[-8rem] top-24 h-72 w-72 rounded-full bg-[#F6F6F6] blur-3xl" />
+      <div className="absolute right-[-10rem] top-32 h-96 w-96 rounded-full bg-black/[0.03] blur-3xl" />
 
-      <div className="relative mx-auto grid max-w-7xl items-center gap-16 lg:grid-cols-[1.02fr_0.98fr]">
+      <div className="stylique-container relative grid min-h-[calc(100vh-7rem)] items-center gap-14 pb-20 lg:grid-cols-[1.02fr_0.98fr] lg:gap-16">
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.65, ease: "easeOut" }}
-          className="text-center lg:text-left"
+          initial="hidden"
+          animate="visible"
+          transition={{ staggerChildren: 0.12 }}
         >
-          <div className="mx-auto mb-6 inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-4 py-2 text-xs font-semibold text-neutral-700 shadow-sm lg:mx-0">
-            <Sparkles className="h-4 w-4 text-neutral-500" />
-            Pretoria’s beauty marketplace
-          </div>
+          <motion.div
+            variants={fadeUp}
+            className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#EFEFEF] bg-white px-4 py-2 shadow-sm"
+          >
+            <Sparkles size={16} className="text-[#111111]" />
+            <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#666666]">
+              Pretoria beauty marketplace
+            </span>
+          </motion.div>
 
-          <h1 className="mx-auto max-w-4xl text-5xl font-extrabold leading-[1.04] tracking-tight text-[#111111] md:text-7xl lg:mx-0">
+          <motion.h1
+            variants={fadeUp}
+            className="font-serif text-5xl font-bold tracking-tight text-[#111111] sm:text-6xl lg:text-7xl"
+          >
             Beauty services near you, booked effortlessly.
-          </h1>
+          </motion.h1>
 
-          <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-neutral-500 lg:mx-0">
+          <motion.p
+            variants={fadeUp}
+            className="mt-6 max-w-2xl text-base leading-8 text-[#666666] sm:text-lg"
+          >
             Discover trusted salons, nail techs, makeup artists, braiders,
             barbers and beauty professionals across Pretoria.
-          </p>
+          </motion.p>
 
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center lg:justify-start">
-            <a
-              href="#waitlist"
-              className="rounded-xl bg-[#111111] px-6 py-3 text-center font-medium text-white shadow-sm transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
-            >
-              Join Waitlist
-            </a>
+          <motion.div
+            variants={fadeUp}
+            className="mt-9 flex flex-col gap-3 sm:flex-row"
+          >
+           <button type="button" onClick={onJoinWaitlist} className="black-button group">
+  Join Waitlist
+  <ArrowRight
+    size={17}
+    className="ml-2 transition-transform group-hover:translate-x-1"
+  />
+</button>
 
-            <a
-              href="/?role=vendor#waitlist"
-              className="rounded-xl border border-neutral-300 bg-white px-6 py-3 text-center font-medium text-[#111111] shadow-sm transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
-            >
-              Become a Vendor
-            </a>
-          </div>
+            <button type="button" onClick={onBecomeVendor} className="light-button">
+  Become a Vendor
+</button>
+          </motion.div>
 
-      <div className="mt-7 flex flex-col items-center gap-3 sm:flex-row sm:justify-center lg:justify-start">
-  <a
-    href="#"
-    className="flex h-14 w-44 items-center gap-3 rounded-2xl bg-[#111111] px-4 text-white shadow-sm transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
-  >
-    <div className="text-2xl leading-none"></div>
-    <div className="text-left">
-      <p className="text-[10px] font-medium leading-none text-white/65">
-        Download on the
-      </p>
-      <p className="mt-1 text-base font-semibold leading-none">App Store</p>
-    </div>
-  </a>
-
-  <a
-    href="#"
-    className="flex h-14 w-44 items-center gap-3 rounded-2xl bg-[#111111] px-4 text-white shadow-sm transition-all duration-300 hover:scale-[1.02] hover:shadow-md"
-  >
-    <div className="grid h-7 w-7 place-items-center rounded-md bg-white text-xs font-black text-[#111111]">
-      ▶
-    </div>
-    <div className="text-left">
-      <p className="text-[10px] font-medium leading-none text-white/65">
-        Get it on
-      </p>
-      <p className="mt-1 text-base font-semibold leading-none">Google Play</p>
-    </div>
-  </a>
-</div>
-
-          
+          <motion.div
+            variants={fadeUp}
+            id="download"
+            className="mt-8 flex flex-col gap-3 sm:flex-row"
+          >
+            <AppBadge label="Early access" store="Customer Waitlist" />
+<AppBadge label="Now onboarding" store="Beauty Vendors" />
+          </motion.div>
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.96 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.75, ease: "easeOut" }}
-          className="relative mx-auto h-[620px] w-full max-w-xl"
+          initial={{ opacity: 0, scale: 0.96, y: 24 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="relative"
         >
-          <div className="absolute inset-x-6 top-16 h-[440px] rounded-[3rem] bg-neutral-200/70 backdrop-blur-3xl" />
+          <div className="absolute -left-8 top-12 h-64 w-64 rounded-full bg-black/[0.03]" />
+          <div className="absolute -right-8 bottom-12 h-52 w-52 rounded-full bg-[#F6F6F6]" />
 
           <motion.div
-            animate={{ y: [0, -8, 0] }}
-            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute right-2 top-10 z-30 rounded-2xl bg-white/90 p-4 shadow-md backdrop-blur-xl"
-          >
-            <div className="flex items-center gap-3">
-              <div className="rounded-xl bg-neutral-100 p-2">
-                <CalendarCheck className="h-5 w-5 text-[#111111]" />
-              </div>
-              <div>
-                <p className="text-xs font-semibold text-[#111111]">
-                  Booking confirmed
-                </p>
-                <p className="text-[11px] text-neutral-500">Today, 14:30</p>
-              </div>
-            </div>
-          </motion.div>
-
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
+            animate={{ y: [0, -12, 0] }}
             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute bottom-24 left-0 z-30 rounded-2xl bg-white/90 p-4 shadow-md backdrop-blur-xl"
+            className="relative overflow-hidden rounded-[2.5rem] bg-[#F6F6F6] p-3 shadow-2xl shadow-black/10"
           >
-            <div className="flex items-center gap-3">
-              <div className="rounded-xl bg-neutral-100 p-2">
-                <MessageCircle className="h-5 w-5 text-[#111111]" />
-              </div>
-              <div>
-                <p className="text-xs font-semibold text-[#111111]">
-                  Chat with vendor
+            <div className="relative h-[520px] overflow-hidden rounded-[2rem] sm:h-[620px]">
+              <Image
+                src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=1200&auto=format&fit=crop"
+                alt="Luxury beauty professional styling a client"
+                fill
+                priority
+                className="object-cover grayscale contrast-105 brightness-[0.98]"
+              />
+
+              <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
+
+              <div className="absolute bottom-5 left-5 right-5 rounded-[1.6rem] border border-white/30 bg-white/80 p-5 shadow-xl backdrop-blur-xl">
+                <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#666666]">
+                  Featured today
                 </p>
-                <p className="text-[11px] text-neutral-500">Quick replies</p>
+                <h3 className="mt-2 text-xl font-bold text-[#111111]">
+                  Glow Bar Pretoria
+                </h3>
+                <p className="mt-1 text-sm text-[#666666]">
+                  Nails, makeup, lashes and skincare near you.
+                </p>
               </div>
             </div>
           </motion.div>
 
-          <div className="absolute left-1/2 top-8 z-20 h-[560px] w-[285px] -translate-x-1/2 rounded-[2.8rem] border-[10px] border-[#111111] bg-[#111111] shadow-2xl">
-            <div className="absolute left-1/2 top-2 z-20 h-6 w-24 -translate-x-1/2 rounded-full bg-[#111111]" />
+          <FloatingCard className="-left-4 top-10" title="4.9 rating" text="Verified professionals" />
+          <FloatingCard className="-right-2 bottom-24" title="15 min" text="Average booking time" />
 
-            <div className="h-full overflow-hidden rounded-[2rem] bg-[#FAFAFA]">
-              <img
-                src="/images/stylique-home.jpeg"
-                alt="Stylique App"
-                className="h-full w-full object-contain object-top"
-              />
-            </div>
-          </div>
-
-          <Sparkles className="absolute left-10 top-20 h-6 w-6 text-neutral-400" />
-          <Sparkles className="absolute bottom-28 right-10 h-5 w-5 text-neutral-400" />
+          <motion.div
+            animate={{ rotate: [0, 8, 0], scale: [1, 1.08, 1] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute right-8 top-8 flex h-12 w-12 items-center justify-center rounded-2xl bg-white shadow-xl"
+          >
+            <Star size={18} fill="#111111" />
+          </motion.div>
         </motion.div>
       </div>
     </section>
+  );
+}
+
+function AppBadge({ label, store }: { label: string; store: string }) {
+  return (
+    <button className="flex w-full items-center gap-3 rounded-2xl border border-[#EFEFEF] bg-white px-5 py-3 text-left shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md sm:w-auto">
+      <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#111111] text-white">
+        <Play size={14} fill="white" />
+      </span>
+
+      <span>
+        <span className="block text-[11px] font-medium text-[#666666]">
+          {label}
+        </span>
+        <span className="block text-sm font-bold text-[#111111]">{store}</span>
+      </span>
+    </button>
+  );
+}
+
+function FloatingCard({
+  title,
+  text,
+  className,
+}: {
+  title: string;
+  text: string;
+  className: string;
+}) {
+  return (
+    <motion.div
+      animate={{ y: [0, -10, 0] }}
+      transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
+      className={`absolute hidden rounded-3xl border border-[#EFEFEF] bg-white/90 p-4 shadow-xl backdrop-blur-xl sm:block ${className}`}
+    >
+      <p className="text-base font-black text-[#111111]">{title}</p>
+      <p className="mt-1 text-xs font-medium text-[#666666]">{text}</p>
+    </motion.div>
   );
 }

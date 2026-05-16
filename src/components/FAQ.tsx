@@ -1,114 +1,116 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { motion } from "framer-motion";
+import { ChevronDown, HelpCircle } from "lucide-react";
 import { useState } from "react";
 
 const faqs = [
   {
-    question: "How do bookings work on Stylique?",
+    question: "When is Stylique launching?",
     answer:
-      "Customers can discover beauty professionals, view services, choose available times and request appointments directly through the app.",
+      "Stylique is preparing for a Pretoria-first launch. Customers can join the waitlist and vendors can apply for early onboarding before the public launch.",
   },
   {
-    question: "Do customers pay through the app?",
+    question: "Is Stylique only available in Pretoria?",
     answer:
-      "For the initial launch, customers will pay vendors directly at the appointment.",
+      "Stylique is starting in Pretoria first so we can build a strong local beauty network before expanding to more areas.",
   },
   {
-    question: "Can customers chat with vendors?",
+    question: "How do vendors join Stylique?",
     answer:
-      "Yes. Stylique includes in-app messaging so customers and vendors can communicate before appointments.",
+      "Beauty professionals can apply through the vendor onboarding flow. Once approved, they can create their profile, list services and start receiving bookings.",
   },
   {
-    question: "How do appointment reminders work?",
+    question: "Do customers pay inside the app?",
     answer:
-      "Stylique automatically sends reminders on the appointment day and before the scheduled booking time.",
+      "For launch, customers pay vendors directly at the appointment. Stylique focuses on discovery, booking, reminders, chat and completion verification.",
   },
   {
-    question: "How can I become a Stylique vendor?",
+    question: "How does commission work for vendors?",
     answer:
-      "Beauty professionals can apply through the app to join the Pretoria launch onboarding program.",
+      "Stylique tracks commission on completed bookings. Vendors agree to the commission terms during onboarding, and settlements are handled separately.",
   },
   {
-    question: "Which areas will Stylique support first?",
+    question: "Is the app available to download yet?",
     answer:
-      "Stylique is initially launching in Pretoria with plans to expand to more areas later.",
+      "The app is not publicly launched yet. Join the waitlist to get notified when early access opens.",
   },
 ];
 
 export function FAQ() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [openIndex, setOpenIndex] = useState(0);
 
   return (
-    <section
-  id="faq"
-  className="px-6 py-16 lg:px-8 lg:py-24"
->
-      <div className="mx-auto max-w-4xl">
+    <section id="faq" className="section-padding bg-[#FAFAFA]">
+      <div className="stylique-container">
         <motion.div
-          initial={{ opacity: 0, y: 18 }}
+          initial={{ opacity: 0, y: 22 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center"
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.55 }}
+          className="mx-auto max-w-3xl text-center"
         >
-          <h2 className="text-4xl font-extrabold tracking-tight text-[#111111] md:text-5xl">
+          <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-white shadow-sm">
+            <HelpCircle size={22} />
+          </div>
+
+          <p className="mb-4 text-sm font-bold uppercase tracking-[0.25em] text-[#666666]">
+            Questions
+          </p>
+
+          <h2 className="font-serif text-4xl font-bold tracking-tight text-[#111111] sm:text-5xl">
             Frequently asked questions
           </h2>
 
-          <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-neutral-500">
-            Everything you need to know about Stylique before launch.
+          <p className="mt-5 text-base leading-8 text-[#666666]">
+            Clear answers for customers and vendors before Stylique launches.
           </p>
         </motion.div>
 
-        <div className="mt-12 space-y-4">
+        <div className="mx-auto mt-12 max-w-4xl space-y-4">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
 
             return (
               <motion.div
                 key={faq.question}
-                initial={{ opacity: 0, y: 12 }}
+                initial={{ opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.05 }}
-                className="overflow-hidden rounded-3xl border border-black/5 bg-white shadow-sm"
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.45, delay: index * 0.05 }}
+                className="overflow-hidden rounded-[1.8rem] border border-[#EFEFEF] bg-white shadow-sm"
               >
                 <button
-                  onClick={() =>
-                    setOpenIndex(isOpen ? null : index)
-                  }
-                  className="flex w-full items-center justify-between px-6 py-5 text-left"
+                  type="button"
+                  onClick={() => setOpenIndex(isOpen ? -1 : index)}
+                  className="flex w-full items-center justify-between gap-5 px-6 py-5 text-left"
                 >
-                  <span className="pr-6 text-base font-semibold text-[#111111]">
+                  <span className="text-base font-black text-[#111111]">
                     {faq.question}
                   </span>
 
-                  <motion.div
-                    animate={{ rotate: isOpen ? 180 : 0 }}
-                    transition={{ duration: 0.2 }}
+                  <span
+                    className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#F6F6F6] text-[#111111] transition-transform duration-300 ${
+                      isOpen ? "rotate-180" : ""
+                    }`}
                   >
-                    <ChevronDown className="h-5 w-5 text-neutral-500" />
-                  </motion.div>
+                    <ChevronDown size={18} />
+                  </span>
                 </button>
 
-                <AnimatePresence initial={false}>
-                  {isOpen && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.25 }}
-                    >
-                      <div className="px-6 pb-6">
-                        <p className="max-w-3xl text-sm leading-relaxed text-neutral-500">
-                          {faq.answer}
-                        </p>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                <motion.div
+                  initial={false}
+                  animate={{
+                    height: isOpen ? "auto" : 0,
+                    opacity: isOpen ? 1 : 0,
+                  }}
+                  transition={{ duration: 0.28, ease: "easeInOut" }}
+                  className="overflow-hidden"
+                >
+                  <p className="border-t border-[#EFEFEF] px-6 py-5 text-sm leading-7 text-[#666666]">
+                    {faq.answer}
+                  </p>
+                </motion.div>
               </motion.div>
             );
           })}

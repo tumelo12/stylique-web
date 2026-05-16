@@ -1,77 +1,74 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Brush, Flower2, Hand, Scissors, Sparkles } from "lucide-react";
+import { Brush, Gem, Scissors, Sparkles, Wand2 } from "lucide-react";
+import Image from "next/image";
 
 const services = [
   {
     title: "Nails",
-    tag: "Popular",
-    image:
-      "https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=900&auto=format&fit=crop",
-    icon: Hand,
+    description: "Gel, acrylic, tips and nail art.",
+    image: "/images/services/acrylic.jpeg",
+    icon: Gem,
   },
   {
     title: "Hair & Braids",
-    tag: "Trending",
+    description: "Braids, wigs, styling and treatments.",
     image:
-      "https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=900&auto=format&fit=crop",
+      "/images/services/hair.jpg",
     icon: Sparkles,
   },
   {
     title: "Makeup",
-    tag: "Event-ready",
+    description: "Soft glam, bridal and event makeup.",
     image:
-      "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?q=80&w=900&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=900&auto=format&fit=crop",
     icon: Brush,
   },
   {
     title: "Barbers",
-    tag: "Nearby",
+    description: "Cuts, fades, beard trims and grooming.",
     image:
       "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=900&auto=format&fit=crop",
     icon: Scissors,
   },
   {
     title: "Skincare",
-    tag: "Glow care",
+    description: "Facials, glow treatments and care.",
     image:
       "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=900&auto=format&fit=crop",
-    icon: Flower2,
+    icon: Wand2,
   },
 ];
 
 export function Services() {
   return (
-    <section
-  id="services"
-  className="px-6 py-16 lg:px-8 lg:py-24"
->
-      <div className="mx-auto max-w-7xl">
+    <section id="services" className="section-padding bg-white">
+      <div className="stylique-container">
         <motion.div
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.5 }}
-          className="flex flex-col items-center justify-between gap-5 text-center lg:flex-row lg:text-left"
+          className="mb-12 flex flex-col justify-between gap-5 md:flex-row md:items-end"
         >
           <div>
-            <p className="mb-3 text-sm font-semibold text-neutral-400">
+            <p className="mb-3 text-sm font-bold uppercase tracking-[0.25em] text-[#666666]">
               Beauty categories
             </p>
 
-            <h2 className="text-4xl font-extrabold tracking-tight text-[#111111] md:text-5xl">
-              Popular beauty services
+            <h2 className="font-serif text-4xl font-bold tracking-tight text-[#111111] sm:text-5xl">
+              Popular Beauty Services
             </h2>
           </div>
 
-          <p className="max-w-md text-sm leading-relaxed text-neutral-500">
-            Explore the services Stylique is preparing to support across
-            Pretoria’s beauty community.
+          <p className="max-w-md text-sm leading-7 text-[#666666] sm:text-base">
+            Explore trusted beauty services across Pretoria, from everyday
+            maintenance to special occasion glam.
           </p>
         </motion.div>
 
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
           {services.map((service, index) => {
             const Icon = service.icon;
 
@@ -80,36 +77,35 @@ export function Services() {
                 key={service.title}
                 initial={{ opacity: 0, y: 22 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.06, duration: 0.45 }}
-                className="group relative overflow-hidden rounded-[2rem] bg-white p-3 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.45, delay: index * 0.08 }}
+                whileHover={{ y: -8 }}
+                className="group overflow-hidden rounded-[2rem] border border-[#EFEFEF] bg-white shadow-sm transition-all duration-300 hover:shadow-2xl hover:shadow-black/10"
               >
-                <div className="relative overflow-hidden rounded-[1.5rem]">
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    className="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-105 lg:h-72"
-                  />
+                <div className="relative h-64 overflow-hidden bg-[#F6F6F6] lg:h-72">
+  <Image
+    src={service.image}
+    alt={service.title}
+    fill
+    className="object-cover grayscale contrast-105 brightness-[0.98] transition-transform duration-700 group-hover:scale-110"
+    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 20vw"
+  />
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
 
-                  <div className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1.5 text-[11px] font-semibold text-[#111111] shadow-sm backdrop-blur-xl">
-                    {service.tag}
+                  <div className="absolute left-4 top-4 flex h-11 w-11 items-center justify-center rounded-2xl bg-white text-[#111111] shadow-lg">
+                    <Icon size={19} />
                   </div>
+                </div>
 
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <div className="mb-3 inline-flex rounded-2xl bg-white/90 p-2 shadow-sm backdrop-blur-xl">
-                      <Icon className="h-4 w-4 text-[#111111]" />
-                    </div>
+                <div className="p-5">
+                  <h3 className="text-lg font-black text-[#111111]">
+                    {service.title}
+                  </h3>
 
-                    <h3 className="text-lg font-bold tracking-tight text-white">
-                      {service.title}
-                    </h3>
-
-                    <p className="mt-1 text-xs leading-relaxed text-white/70">
-                      Discover trusted professionals near you.
-                    </p>
-                  </div>
+                  <p className="mt-2 text-sm leading-6 text-[#666666]">
+                    {service.description}
+                  </p>
                 </div>
               </motion.article>
             );
