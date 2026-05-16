@@ -13,7 +13,7 @@ const contactItems = [
   {
     icon: Phone,
     label: "Phone",
-    value: "+27 69 8397692",
+    value: "+27 69 8397 692",
   },
   {
     icon: MapPin,
