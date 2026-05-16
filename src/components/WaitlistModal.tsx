@@ -3,6 +3,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, CheckCircle2, X } from "lucide-react";
 import { FormEvent, useState } from "react";
+import { trackMetaPixelEvent } from "@/src/lib/metaPixel";
 
 type WaitlistType = "customer" | "vendor";
 
@@ -62,12 +63,20 @@ export function WaitlistModal({ open, type, onClose }: WaitlistModalProps) {
       }
 
       if (!response.ok) {
-        throw new Error(result.error || "Could not join waitlist.");
-      }
+  throw new Error(result.error || "Could not join waitlist.");
+}
 
-      form.reset();
+if (type === "customer") {
+  trackMetaPixelEvent("Lead");
+}
 
-      setStatus({
+if (type === "vendor") {
+  trackMetaPixelEvent("CompleteRegistration");
+}
+
+form.reset();
+
+setStatus({
         type: "success",
         message: isVendor
           ? "You are on the vendor early access list."
