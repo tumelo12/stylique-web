@@ -50,6 +50,17 @@ export function WaitlistModal({ open, type, onClose }: WaitlistModalProps) {
 
       const result = await response.json();
 
+      if (result.duplicate) {
+        setStatus({
+          type: "success",
+          message: isVendor
+            ? "You’re already on the vendor waitlist."
+            : "You’re already on the customer waitlist.",
+        });
+
+        return;
+      }
+
       if (!response.ok) {
         throw new Error(result.error || "Could not join waitlist.");
       }
@@ -126,22 +137,36 @@ export function WaitlistModal({ open, type, onClose }: WaitlistModalProps) {
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-4">
-                <Input name="fullName" label="Full name" placeholder="Your name" />
+                <Input
+                  name="fullName"
+                  label="Full name"
+                  placeholder="Your name"
+                  autoComplete="name"
+                />
 
                 <Input
                   name="email"
                   label="Email"
                   type="email"
                   placeholder="you@example.com"
+                  autoComplete="email"
                 />
 
                 <Input
                   name="phoneNumber"
                   label="Phone number"
-                  placeholder="+27..."
+                  type="tel"
+                  placeholder="+27 82 123 4567"
+                  autoComplete="tel"
+                  inputMode="tel"
                 />
 
-                <Input name="city" label="City" placeholder="Pretoria" />
+                <Input
+                  name="city"
+                  label="City"
+                  placeholder="Pretoria"
+                  autoComplete="address-level2"
+                />
 
                 {status && (
                   <div
@@ -154,6 +179,7 @@ export function WaitlistModal({ open, type, onClose }: WaitlistModalProps) {
                     {status.type === "success" && (
                       <CheckCircle2 size={18} className="mt-0.5 shrink-0" />
                     )}
+
                     <span>{status.message}</span>
                   </div>
                 )}
@@ -188,11 +214,15 @@ function Input({
   label,
   placeholder,
   type = "text",
+  autoComplete,
+  inputMode,
 }: {
   name: string;
   label: string;
   placeholder: string;
   type?: string;
+  autoComplete?: string;
+  inputMode?: React.HTMLAttributes<HTMLInputElement>["inputMode"];
 }) {
   return (
     <div>
@@ -209,6 +239,8 @@ function Input({
         type={type}
         required={name === "email"}
         placeholder={placeholder}
+        autoComplete={autoComplete}
+        inputMode={inputMode}
         className="h-13 w-full rounded-[1.25rem] border border-[#E8E8E8] bg-white px-4 text-sm text-[#111111] outline-none transition-all placeholder:text-[#999999] focus:border-black/25 focus:ring-4 focus:ring-black/5"
       />
     </div>

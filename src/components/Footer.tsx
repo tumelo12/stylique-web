@@ -66,12 +66,18 @@ export function Footer() {
 
       const result = await response.json();
 
-      if (!response.ok) {
-        throw new Error(result.error || "Could not join waitlist.");
-      }
+if (result.duplicate) {
+  setSubmitted(true);
+  setEmail("");
+  return;
+}
 
-      setSubmitted(true);
-      setEmail("");
+if (!response.ok) {
+  throw new Error(result.error || "Could not join waitlist.");
+}
+
+setSubmitted(true);
+setEmail("");
     } catch (error) {
       setError(
         error instanceof Error

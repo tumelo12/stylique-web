@@ -44,12 +44,18 @@ export function WaitlistForm() {
         body: JSON.stringify(payload),
       });
 
-      if (!response.ok) {
-        const data = await response.json();
-        throw new Error(data.message || "Something went wrong.");
-      }
+      const result = await response.json();
 
-      setSubmitted(true);
+if (result.duplicate) {
+  setSubmitted(true);
+  return;
+}
+
+if (!response.ok) {
+  throw new Error(result.error || "Something went wrong.");
+}
+
+setSubmitted(true);
     } catch (err) {
       setError(
         err instanceof Error
@@ -111,21 +117,24 @@ export function WaitlistForm() {
       </div>
 
       <div className="grid gap-3">
-        <input
-          required
-          name="name"
-          type="text"
-          placeholder="Your name"
-          className={inputClass}
-        />
+       <input
+  required
+  name="name"
+  type="text"
+  autoComplete="name"
+  placeholder="Your name"
+  className={inputClass}
+/>
 
-        <input
-          required
-          name="email"
-          type="email"
-          placeholder="Email address"
-          className={inputClass}
-        />
+       <input
+  required
+  name="email"
+  type="email"
+  inputMode="email"
+  autoComplete="email"
+  placeholder="Email address"
+  className={inputClass}
+/>
 
         <select
           required
