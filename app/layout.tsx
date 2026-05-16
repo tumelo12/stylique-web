@@ -13,22 +13,36 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Stylique | Pretoria Beauty Marketplace",
+  metadataBase: new URL("https://stylique.co.za"),
+
+  title: {
+    default: "Stylique | Pretoria Beauty Marketplace",
+    template: "%s | Stylique",
+  },
+
   description:
-    "Stylique is a Pretoria-first beauty marketplace helping customers discover trusted salons, nail techs, makeup artists, braiders, barbers and beauty professionals.",
+    "Join Stylique early access. A Pretoria-first beauty marketplace for discovering trusted salons, nail techs, makeup artists, braiders, barbers and beauty professionals.",
 
   keywords: [
     "Stylique",
-    "beauty marketplace Pretoria",
-    "book beauty services",
+    "Pretoria beauty marketplace",
+    "book beauty services Pretoria",
     "nail tech Pretoria",
     "makeup artist Pretoria",
     "braids Pretoria",
     "barbers Pretoria",
     "salons Pretoria",
+    "beauty vendors Pretoria",
   ],
 
-  metadataBase: new URL("https://stylique.co.za"),
+  applicationName: "Stylique",
+  authors: [{ name: "Stylique" }],
+  creator: "Stylique",
+  publisher: "Stylique",
+
+  alternates: {
+    canonical: "/",
+  },
 
   icons: {
     icon: "/icon.png",
@@ -37,28 +51,35 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "Stylique | Pretoria Beauty Marketplace",
-    description:
-      "Join Stylique early access. Discover trusted beauty professionals across Pretoria.",
-    type: "website",
-    locale: "en_ZA",
-    siteName: "Stylique",
-    images: [
-      {
-        url: "/icon.png",
-        width: 512,
-        height: 512,
-        alt: "Stylique",
-      },
-    ],
-  },
+  title: "Stylique | Pretoria Beauty Marketplace",
+  description:
+    "Join Stylique early access and discover trusted beauty professionals across Pretoria.",
+  url: "https://stylique.co.za",
+  siteName: "Stylique",
+  type: "website",
+  locale: "en_ZA",
+
+  images: [
+    {
+      url: "/og-image.png",
+      width: 1200,
+      height: 630,
+      alt: "Stylique",
+    },
+  ],
+},
 
   twitter: {
     card: "summary_large_image",
     title: "Stylique | Pretoria Beauty Marketplace",
     description:
       "Join Stylique early access. Pretoria’s beauty marketplace is launching soon.",
-    images: ["/icon.png"],
+    images: ["/og-image.png"],
+  },
+
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
