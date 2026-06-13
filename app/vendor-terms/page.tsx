@@ -113,7 +113,7 @@ export default function VendorTermsPage() {
             <p className="mt-3">
               Questions regarding vendor participation, commissions, or vendor
               accounts may be directed to Stylique Support at
-              support@yourdomain.com.
+              support@stylique.co.za.
             </p>
           </section>
         </div>

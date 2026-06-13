@@ -145,7 +145,7 @@ export default function TermsPage() {
             </h2>
             <p className="mt-3">
               If you have questions about these Terms of Service, please contact
-              Stylique Support at support@yourdomain.com.
+              Stylique Support at support@stylique.co.za.
             </p>
           </section>
         </div>
