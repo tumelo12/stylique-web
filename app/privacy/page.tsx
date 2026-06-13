@@ -126,7 +126,7 @@ export default function PrivacyPage() {
             <p className="mt-3">
               If you have questions about this Privacy Policy, your account, or
               your personal information, please contact Stylique Support at
-              support@yourdomain.com.
+              support@stylique.co.za.
             </p>
           </section>
         </div>
