@@ -92,8 +92,7 @@ export default function PrivacyPage() {
               Account deletion and deactivation
             </h2>
             <p className="mt-3">
-              Users may request account deactivation through the Stylique
-              application.
+              Users may request account deletion through the Stylique application. Deletion requests begin with immediate account deactivation, followed by a 30-day recovery period before permanent deletion.
             </p>
             <p className="mt-3">
               Deactivated accounts may remain recoverable for a limited period
@@ -114,8 +113,7 @@ export default function PrivacyPage() {
               notification preferences within the application.
             </p>
             <p className="mt-3">
-              You may also request account deactivation through your account
-              settings.
+              You may request account deletion through your account settings. During the recovery period, you may contact Stylique Support if you wish to cancel your deletion request.
             </p>
           </section>
 
