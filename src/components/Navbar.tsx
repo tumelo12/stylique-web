@@ -6,22 +6,20 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 
-type NavbarProps = {
-  onJoinWaitlist?: () => void;
-};
-
+import Link from "next/link";
+import { APP_LINKS } from "@/src/lib/constants";
 const navItems = [
   { label: "Home", href: "#home" },
   { label: "Services", href: "#services" },
   { label: "About", href: "#about" },
   { label: "For Vendors", href: "#vendors" },
   { label: "For Customers", href: "#customers" },
-  { label: "Early Access", href: "#early-access" },
+{ label: "Become a Vendor", href: "#become-vendor" },
   { label: "FAQ", href: "#faq" },
   { label: "Contact", href: "#contact" },
 ];
 
-export function Navbar({ onJoinWaitlist }: NavbarProps) {
+export function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -71,13 +69,14 @@ export function Navbar({ onJoinWaitlist }: NavbarProps) {
         </div>
 
         <div className="hidden lg:block">
-          <button
-            type="button"
-            onClick={onJoinWaitlist}
-            className="black-button"
-          >
-            Join Waitlist
-          </button>
+        <Link
+  href={APP_LINKS.googlePlay}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="black-button"
+>
+  Download App
+</Link>
         </div>
 
         <button
@@ -136,16 +135,15 @@ export function Navbar({ onJoinWaitlist }: NavbarProps) {
                 ))}
               </div>
 
-              <button
-                type="button"
-                onClick={() => {
-                  setOpen(false);
-                  onJoinWaitlist?.();
-                }}
-                className="black-button mt-6 w-full"
-              >
-                Join Waitlist
-              </button>
+              <Link
+  href={APP_LINKS.googlePlay}
+  target="_blank"
+  rel="noopener noreferrer"
+  onClick={() => setOpen(false)}
+  className="black-button mt-6 flex w-full items-center justify-center"
+>
+  Download App
+</Link>
             </motion.div>
           </>
         )}

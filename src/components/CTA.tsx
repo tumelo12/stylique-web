@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
+import Link from "next/link";
+import { APP_LINKS } from "../lib/constants";
 
 type CTAProps = {
   onJoinWaitlist?: () => void;
@@ -32,33 +34,35 @@ export function CTA({
                 <Sparkles size={15} />
 
                 <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#666666]">
-                  Glow starts here
+                Now Available
                 </span>
               </div>
 
               <h2 className="font-serif text-4xl font-bold tracking-tight text-[#111111] sm:text-5xl">
-                Ready to glow?
+               Download Stylique Today
               </h2>
 
               <p className="mt-4 max-w-2xl text-base leading-8 text-[#666666]">
-                Be among the first customers and beauty professionals joining
-Stylique before launch in Pretoria.
+            Stylique is now available on Google Play. Browse beauty services,
+discover trusted professionals and book your next appointment in
+minutes.
               </p>
             </div>
 
             <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
-              <button
-                type="button"
-                onClick={onJoinWaitlist}
-                className="black-button group"
-              >
-                Join Waitlist
+              <Link
+  href={APP_LINKS.googlePlay}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="black-button group inline-flex items-center justify-center"
+>
+  Download on Google Play
 
-                <ArrowRight
-                  size={17}
-                  className="ml-2 transition-transform group-hover:translate-x-1"
-                />
-              </button>
+  <ArrowRight
+    size={17}
+    className="ml-2 transition-transform group-hover:translate-x-1"
+  />
+</Link>
 
               <button
                 type="button"

@@ -3,19 +3,20 @@
 import { motion } from "framer-motion";
 import { ArrowRight, BadgeCheck, Sparkles, Users } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
+import { APP_LINKS } from "../lib/constants";
 
 const stats = [
-  { value: "Pretoria", label: "First Launch City" },
-  { value: "Open", label: "Vendor Onboarding" },
-  { value: "Live Soon", label: "Customer Waitlist" },
+  { value: "Pretoria", label: "Launch City" },
+  { value: "Live", label: "Google Play" },
+  { value: "Open", label: "Vendor Applications" },
 ];
-
 type AboutProps = {
-  onJoinWaitlist?: () => void;
+  onDownload?: () => void;
   onBecomeVendor?: () => void;
 };
 
-export function About({ onJoinWaitlist, onBecomeVendor }: AboutProps) {
+export function About({ onDownload, onBecomeVendor }: AboutProps) {
   return (
     <section id="about" className="section-padding bg-white">
       <div className="stylique-container">
@@ -41,8 +42,8 @@ export function About({ onJoinWaitlist, onBecomeVendor }: AboutProps) {
             </p>
 
             <p className="mt-4 max-w-xl text-base leading-8 text-[#666666]">
-              We connect Pretoria’s beauty community through simple booking,
-              verified vendors, reminders, chat, reviews and repeat-client tools.
+              Customers can browse services, discover trusted beauty professionals,
+book appointments and manage everything in one beautifully designed app.
             </p>
 
             <div className="mt-8 grid gap-4 sm:grid-cols-3">
@@ -150,29 +151,30 @@ export function About({ onJoinWaitlist, onBecomeVendor }: AboutProps) {
               <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2">
                 <Users size={15} />
                 <span className="text-xs font-bold uppercase tracking-[0.22em] text-white/70">
-                  Join the Stylique community
+                  Download Stylique Today
                 </span>
               </div>
 
               <h3 className="font-serif text-3xl font-bold tracking-tight sm:text-4xl">
-                Beauty made easier for customers and vendors.
+                Your next beauty appointment starts with Stylique.
               </h3>
 
               <p className="mt-4 max-w-2xl text-sm leading-7 text-white/65 sm:text-base">
-                Whether you are booking your next appointment or growing your
-                beauty business, Stylique gives you a cleaner, smarter way to
-                connect.
+              Download Stylique on Google Play to discover trusted beauty
+professionals, compare services and book your next appointment.
+Beauty businesses can also join our growing vendor community.
               </p>
             </div>
 
             <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
-              <button
-                type="button"
-                onClick={onJoinWaitlist}
-                className="light-button"
-              >
-                Join Waitlist
-              </button>
+              <Link
+  href={APP_LINKS.googlePlay}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="light-button inline-flex items-center justify-center"
+>
+  Download Now
+</Link>
 
               <button
                 type="button"

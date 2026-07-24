@@ -7,7 +7,7 @@ import { AmbientBackground } from "@/src/components/AmbientBackground";
 import { Contact } from "@/src/components/Contact";
 import { CTA } from "@/src/components/CTA";
 import { Customers } from "@/src/components/Customers";
-import { EarlyAccess } from "@/src/components/EarlyAccess";
+import { BecomeVendor } from "@/src/components/BecomeVendor";
 import { FAQ } from "@/src/components/FAQ";
 import { Features } from "@/src/components/Features";
 import { Footer } from "@/src/components/Footer";
@@ -15,53 +15,49 @@ import { Hero } from "@/src/components/Hero";
 import { Navbar } from "@/src/components/Navbar";
 import { Services } from "@/src/components/Services";
 import { Vendors } from "@/src/components/Vendors";
-import { WaitlistModal } from "@/src/components/WaitlistModal";
+import { VendorApplicationModal } from "@/src/components/VendorApplicationModal";
 
-type WaitlistType = "customer" | "vendor";
+type WaitlistType = "vendor";
 
 export function HomeClient() {
   const [modalOpen, setModalOpen] = useState(false);
-  const [waitlistType, setWaitlistType] =
-    useState<WaitlistType>("customer");
+ const [waitlistType, setWaitlistType] =
+  useState<WaitlistType>("vendor");
 
-  function openWaitlist(type: WaitlistType) {
-    setWaitlistType(type);
-    setModalOpen(true);
-  }
+function openVendorApplication() {
+  setWaitlistType("vendor");
+  setModalOpen(true);
+}
 
   return (
     <main className="relative overflow-hidden bg-white">
       <AmbientBackground />
 
-      <Navbar onJoinWaitlist={() => openWaitlist("customer")} />
+<Navbar />
 
-      <Hero
-        onJoinWaitlist={() => openWaitlist("customer")}
-        onBecomeVendor={() => openWaitlist("vendor")}
-      />
+     <Hero
+  onBecomeVendor={openVendorApplication}
+/>
 
       <Features />
 
       <Services />
 
-      <CTA
-        onJoinWaitlist={() => openWaitlist("customer")}
-        onBecomeVendor={() => openWaitlist("vendor")}
-      />
-
-      <Vendors onBecomeVendor={() => openWaitlist("vendor")} />
-
-      <Customers onJoinWaitlist={() => openWaitlist("customer")} />
-
-      <About
-  onJoinWaitlist={() => openWaitlist("customer")}
-  onBecomeVendor={() => openWaitlist("vendor")}
+     <CTA
+  onBecomeVendor={openVendorApplication}
 />
 
-      <EarlyAccess
-        onJoinWaitlist={() => openWaitlist("customer")}
-        onBecomeVendor={() => openWaitlist("vendor")}
-      />
+      <Vendors onBecomeVendor={openVendorApplication} />
+
+      <Customers />
+
+<About
+  onBecomeVendor={openVendorApplication}
+/>
+
+      <BecomeVendor
+  onBecomeVendor={openVendorApplication}
+/>
 
       <FAQ />
 
@@ -69,11 +65,10 @@ export function HomeClient() {
 
       <Footer />
 
-      <WaitlistModal
-        open={modalOpen}
-        type={waitlistType}
-        onClose={() => setModalOpen(false)}
-      />
+      <VendorApplicationModal
+  open={modalOpen}
+  onClose={() => setModalOpen(false)}
+/>
     </main>
   );
 }

@@ -24,13 +24,10 @@ const checklist = [
   "Secure completion with PIN verification",
 ];
 
-type CustomersProps = {
-  onJoinWaitlist?: () => void;
-};
+import Link from "next/link";
+import { APP_LINKS } from "@/src/lib/constants";
 
-export function Customers({
-  onJoinWaitlist,
-}: CustomersProps) {
+export function Customers() {
   return (
     <section id="customers" className="section-padding bg-[#FAFAFA]">
       <div className="stylique-container grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
@@ -166,9 +163,9 @@ export function Customers({
           </h2>
 
           <p className="mt-5 max-w-xl text-base leading-8 text-[#666666]">
-            Discover trusted beauty professionals near you, book your next
-            appointment in minutes, and stay connected from confirmation to
-            completion.
+            Discover trusted beauty professionals, compare services, book in
+minutes and manage every appointment from confirmation to
+completion.
           </p>
 
           <div className="mt-8 grid gap-3">
@@ -185,22 +182,21 @@ export function Customers({
             ))}
           </div>
 
-          <div
-            id="customer-waitlist"
-            className="mt-9 flex flex-col gap-3 sm:flex-row"
-          >
-            <AppBadge
-              label="Early access"
-              store="Customer Waitlist"
-              onClick={onJoinWaitlist}
-            />
+         <div
+  id="customer-download"
+  className="mt-9 flex flex-col gap-3 sm:flex-row"
+>
+  <AppBadge
+    label="Available now"
+    store="Google Play"
+    href={APP_LINKS.googlePlay}
+  />
 
-            <AppBadge
-              label="Now onboarding"
-              store="Beauty Vendors"
-              onClick={onJoinWaitlist}
-            />
-          </div>
+  <AppBadge
+    label="Applications open"
+    store="Beauty Vendors"
+  />
+</div>
         </motion.div>
       </div>
     </section>
@@ -267,18 +263,14 @@ function MiniTile({
 function AppBadge({
   label,
   store,
-  onClick,
+  href,
 }: {
   label: string;
   store: string;
-  onClick?: () => void;
+  href?: string;
 }) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      className="flex w-full items-center gap-3 rounded-2xl border border-[#EFEFEF] bg-white px-5 py-3 text-left shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md sm:w-auto"
-    >
+  const content = (
+    <>
       <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#111111] text-white">
         <Play size={14} fill="white" />
       </span>
@@ -292,6 +284,24 @@ function AppBadge({
           {store}
         </span>
       </span>
-    </button>
+    </>
   );
+
+  const className =
+    "flex w-full items-center gap-3 rounded-2xl border border-[#EFEFEF] bg-white px-5 py-3 text-left shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md sm:w-auto";
+
+  if (href) {
+    return (
+      <Link
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={className}
+      >
+        {content}
+      </Link>
+    );
+  }
+
+  return <div className={className}>{content}</div>;
 }

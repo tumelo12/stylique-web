@@ -6,21 +6,21 @@ import { MapPin, Sparkles, Users } from "lucide-react";
 const items = [
   {
     icon: MapPin,
-    title: "Launching in Pretoria",
+    title: "Available in Pretoria",
     description:
-      "Starting with selected beauty professionals across Pretoria.",
+      "Stylique is currently helping customers discover trusted beauty professionals across Pretoria.",
   },
   {
     icon: Users,
-    title: "Vendor onboarding open",
+    title: "Vendor Applications Open",
     description:
-      "Salons, nail techs, barbers and makeup artists can join early.",
+      "Salons, nail technicians, barbers, makeup artists and other beauty professionals can apply to join Stylique.",
   },
   {
     icon: Sparkles,
-    title: "Built for beauty bookings",
+    title: "Book Beauty with Confidence",
     description:
-      "A premium platform designed for modern beauty professionals.",
+      "Compare services, book appointments in minutes and manage your beauty journey from one app.",
   },
 ];
 

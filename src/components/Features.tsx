@@ -6,22 +6,26 @@ import { BadgeCheck, BellRing, CalendarCheck, MessageCircle } from "lucide-react
 const features = [
   {
     title: "Verified Professionals",
-    description: "Book trusted salons, artists and beauty experts with confidence.",
+    description:
+      "Discover trusted salons, barbers, nail technicians and beauty experts with confidence.",
     icon: BadgeCheck,
   },
   {
-    title: "Easy Booking",
-    description: "Choose your service, time and location in just a few taps.",
+    title: "Book in Minutes",
+    description:
+      "Compare services, choose your preferred time and send booking requests in just a few taps.",
     icon: CalendarCheck,
   },
   {
-    title: "Smart Reminders",
-    description: "Never miss an appointment with timely booking reminders.",
+    title: "Booking Updates",
+    description:
+      "Stay informed with real-time booking confirmations, reminders and appointment updates.",
     icon: BellRing,
   },
   {
-    title: "Chat & Connect",
-    description: "Message vendors directly before and after your appointment.",
+    title: "Chat with Vendors",
+    description:
+      "Message beauty professionals directly before and after your appointments.",
     icon: MessageCircle,
   },
 ];

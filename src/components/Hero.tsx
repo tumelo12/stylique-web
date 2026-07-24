@@ -3,9 +3,10 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Play, Sparkles, Star } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
+import { APP_LINKS } from "../lib/constants";
 
 type HeroProps = {
-  onJoinWaitlist?: () => void;
   onBecomeVendor?: () => void;
 };
 
@@ -14,7 +15,7 @@ const fadeUp = {
   visible: { opacity: 1, y: 0 },
 };
 
-export function Hero({ onJoinWaitlist, onBecomeVendor }: HeroProps) {
+export function Hero({ onBecomeVendor }: HeroProps) {
   return (
     <section
       id="home"
@@ -34,8 +35,9 @@ export function Hero({ onJoinWaitlist, onBecomeVendor }: HeroProps) {
             className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#EFEFEF] bg-white px-4 py-2 shadow-sm"
           >
             <Sparkles size={16} className="text-[#111111]" />
+
             <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#666666]">
-              Pretoria beauty marketplace
+              Pretoria Beauty Marketplace
             </span>
           </motion.div>
 
@@ -50,25 +52,36 @@ export function Hero({ onJoinWaitlist, onBecomeVendor }: HeroProps) {
             variants={fadeUp}
             className="mt-6 max-w-2xl text-base leading-8 text-[#666666] sm:text-lg"
           >
-            Discover trusted salons, nail techs, makeup artists, braiders,
-            barbers and beauty professionals across Pretoria.
+            Discover trusted salons, nail technicians, barbers, makeup
+            artists, spas and skincare professionals. Compare services,
+            browse reviews and book your next appointment with ease.
           </motion.p>
 
           <motion.div
             variants={fadeUp}
             className="mt-9 flex flex-col gap-3 sm:flex-row"
           >
-           <button type="button" onClick={onJoinWaitlist} className="black-button group">
-  Join Waitlist
-  <ArrowRight
-    size={17}
-    className="ml-2 transition-transform group-hover:translate-x-1"
-  />
-</button>
+            <Link
+              href={APP_LINKS.googlePlay}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="black-button group inline-flex items-center justify-center"
+            >
+              Download on Google Play
 
-            <button type="button" onClick={onBecomeVendor} className="light-button">
-  Become a Vendor
-</button>
+              <ArrowRight
+                size={17}
+                className="ml-2 transition-transform group-hover:translate-x-1"
+              />
+            </Link>
+
+            <button
+              type="button"
+              onClick={onBecomeVendor}
+              className="light-button"
+            >
+              Become a Vendor
+            </button>
           </motion.div>
 
           <motion.div
@@ -76,8 +89,16 @@ export function Hero({ onJoinWaitlist, onBecomeVendor }: HeroProps) {
             id="download"
             className="mt-8 flex flex-col gap-3 sm:flex-row"
           >
-            <AppBadge label="Early access" store="Customer Waitlist" />
-<AppBadge label="Now onboarding" store="Beauty Vendors" />
+            <AppBadge
+              label="Available now"
+              store="Google Play"
+              href={APP_LINKS.googlePlay}
+            />
+
+            <AppBadge
+              label="Applications open"
+              store="Beauty Vendors"
+            />
           </motion.div>
         </motion.div>
 
@@ -92,7 +113,11 @@ export function Hero({ onJoinWaitlist, onBecomeVendor }: HeroProps) {
 
           <motion.div
             animate={{ y: [0, -12, 0] }}
-            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+            transition={{
+              duration: 5,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
             className="relative overflow-hidden rounded-[2.5rem] bg-[#F6F6F6] p-3 shadow-2xl shadow-black/10"
           >
             <div className="relative h-[520px] overflow-hidden rounded-[2rem] sm:h-[620px]">
@@ -108,24 +133,38 @@ export function Hero({ onJoinWaitlist, onBecomeVendor }: HeroProps) {
 
               <div className="absolute bottom-5 left-5 right-5 rounded-[1.6rem] border border-white/30 bg-white/80 p-5 shadow-xl backdrop-blur-xl">
                 <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#666666]">
-                  Featured today
+                  Trending on Stylique
                 </p>
+
                 <h3 className="mt-2 text-xl font-bold text-[#111111]">
                   Glow Bar Pretoria
                 </h3>
+
                 <p className="mt-1 text-sm text-[#666666]">
-                  Nails, makeup, lashes and skincare near you.
+                  Book trusted beauty services in just a few taps.
                 </p>
               </div>
             </div>
           </motion.div>
+                    <FloatingCard
+            className="-left-4 top-10"
+            title="4.9 Rating"
+            text="Verified professionals"
+          />
 
-          <FloatingCard className="-left-4 top-10" title="4.9 rating" text="Verified professionals" />
-          <FloatingCard className="-right-2 bottom-24" title="15 min" text="Average booking time" />
+          <FloatingCard
+            className="-right-2 bottom-24"
+            title="15 min"
+            text="Average booking time"
+          />
 
           <motion.div
             animate={{ rotate: [0, 8, 0], scale: [1, 1.08, 1] }}
-            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            transition={{
+              duration: 4,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
             className="absolute right-8 top-8 flex h-12 w-12 items-center justify-center rounded-2xl bg-white shadow-xl"
           >
             <Star size={18} fill="#111111" />
@@ -136,9 +175,17 @@ export function Hero({ onJoinWaitlist, onBecomeVendor }: HeroProps) {
   );
 }
 
-function AppBadge({ label, store }: { label: string; store: string }) {
-  return (
-    <button className="flex w-full items-center gap-3 rounded-2xl border border-[#EFEFEF] bg-white px-5 py-3 text-left shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md sm:w-auto">
+function AppBadge({
+  label,
+  store,
+  href,
+}: {
+  label: string;
+  store: string;
+  href?: string;
+}) {
+  const content = (
+    <>
       <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#111111] text-white">
         <Play size={14} fill="white" />
       </span>
@@ -147,10 +194,31 @@ function AppBadge({ label, store }: { label: string; store: string }) {
         <span className="block text-[11px] font-medium text-[#666666]">
           {label}
         </span>
-        <span className="block text-sm font-bold text-[#111111]">{store}</span>
+
+        <span className="block text-sm font-bold text-[#111111]">
+          {store}
+        </span>
       </span>
-    </button>
+    </>
   );
+
+  const className =
+    "flex w-full items-center gap-3 rounded-2xl border border-[#EFEFEF] bg-white px-5 py-3 text-left shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md sm:w-auto";
+
+  if (href) {
+    return (
+      <Link
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={className}
+      >
+        {content}
+      </Link>
+    );
+  }
+
+  return <div className={className}>{content}</div>;
 }
 
 function FloatingCard({
@@ -165,11 +233,20 @@ function FloatingCard({
   return (
     <motion.div
       animate={{ y: [0, -10, 0] }}
-      transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
+      transition={{
+        duration: 4.5,
+        repeat: Infinity,
+        ease: "easeInOut",
+      }}
       className={`absolute hidden rounded-3xl border border-[#EFEFEF] bg-white/90 p-4 shadow-xl backdrop-blur-xl sm:block ${className}`}
     >
-      <p className="text-base font-black text-[#111111]">{title}</p>
-      <p className="mt-1 text-xs font-medium text-[#666666]">{text}</p>
+      <p className="text-base font-black text-[#111111]">
+        {title}
+      </p>
+
+      <p className="mt-1 text-xs font-medium text-[#666666]">
+        {text}
+      </p>
     </motion.div>
   );
 }

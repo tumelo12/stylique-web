@@ -45,7 +45,7 @@ export function VendorSection() {
         >
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs font-semibold text-white/80">
             <Sparkles className="h-4 w-4 text-white" />
-            Vendor onboarding now open
+            Vendor Applications Open
           </div>
 
           <h2 className="max-w-xl text-4xl font-extrabold tracking-tight md:text-5xl">
@@ -53,14 +53,13 @@ export function VendorSection() {
           </h2>
 
           <p className="mt-5 max-w-xl text-base leading-relaxed text-white/60">
-            We’re onboarding selected salons, nail techs, makeup artists,
-            braiders, barbers and beauty professionals across Pretoria before
-            launch.
+           Join Stylique to showcase your services, receive booking requests,
+chat with customers and grow your beauty business across Pretoria.
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a
-              href="#waitlist"
+              href="#become-vendor"
               className="rounded-xl bg-white px-6 py-3 text-center font-medium text-[#111111] shadow-sm transition-all duration-300 hover:scale-[1.02] hover:bg-neutral-200"
             >
               Become a Vendor
@@ -112,11 +111,14 @@ export function VendorSection() {
               </div>
 
               <div>
-                <h3 className="text-base font-bold">Pretoria-first launch</h3>
-                <p className="mt-1 text-sm leading-relaxed text-neutral-600">
-                  Early vendors get visibility while we prepare the first public
-                  launch of Stylique.
-                </p>
+               <h3 className="text-base font-bold">
+  Growing Across Pretoria
+</h3>
+
+<p className="mt-1 text-sm leading-relaxed text-neutral-600">
+  Join Stylique today and connect with customers looking for trusted
+  beauty professionals across Pretoria.
+</p>
               </div>
             </div>
           </div>

@@ -5,22 +5,23 @@ import { ArrowRight, CheckCircle2, X } from "lucide-react";
 import { FormEvent, useState } from "react";
 import { trackMetaPixelEvent } from "@/src/lib/metaPixel";
 
-type WaitlistType = "customer" | "vendor";
+type ApplicationType = "vendor";
 
-type WaitlistModalProps = {
+type VendorApplicationModalProps = {
   open: boolean;
-  type: WaitlistType;
   onClose: () => void;
 };
 
-export function WaitlistModal({ open, type, onClose }: WaitlistModalProps) {
+export function VendorApplicationModal({
+  open,
+  onClose,
+}: VendorApplicationModalProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState<{
     type: "success" | "error";
     message: string;
   } | null>(null);
 
-  const isVendor = type === "vendor";
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -36,8 +37,8 @@ export function WaitlistModal({ open, type, onClose }: WaitlistModalProps) {
       email: String(formData.get("email") || "").trim(),
       phoneNumber: String(formData.get("phoneNumber") || "").trim(),
       city: String(formData.get("city") || "Pretoria").trim(),
-      type,
-      source: "website_modal",
+     type: "vendor",
+source: "website_vendor_application",
     };
 
     try {
@@ -54,9 +55,7 @@ export function WaitlistModal({ open, type, onClose }: WaitlistModalProps) {
       if (result.duplicate) {
         setStatus({
           type: "success",
-          message: isVendor
-            ? "You’re already on the vendor waitlist."
-            : "You’re already on the customer waitlist.",
+          message: "You've already submitted a vendor application.",
         });
 
         return;
@@ -66,21 +65,14 @@ export function WaitlistModal({ open, type, onClose }: WaitlistModalProps) {
   throw new Error(result.error || "Could not join waitlist.");
 }
 
-if (type === "customer") {
-  trackMetaPixelEvent("Lead");
-}
-
-if (type === "vendor") {
-  trackMetaPixelEvent("CompleteRegistration");
-}
+trackMetaPixelEvent("CompleteRegistration");
 
 form.reset();
 
 setStatus({
         type: "success",
-        message: isVendor
-          ? "You are on the vendor early access list."
-          : "You are on the customer waitlist.",
+        message:
+  "Thanks for applying! We'll review your application and contact you soon.",
       });
     } catch (error) {
       setStatus({
@@ -119,26 +111,22 @@ setStatus({
               <div className="mb-6 flex items-start justify-between gap-5">
                 <div>
                   <p className="mb-3 text-xs font-bold uppercase tracking-[0.25em] text-[#666666]">
-                    Early access
+                  Vendor Application
                   </p>
 
                   <h2 className="font-serif text-3xl font-bold leading-tight text-[#111111]">
-                    {isVendor
-                      ? "Join vendor onboarding"
-                      : "Join the customer waitlist"}
+                    Become a Stylique Vendor
                   </h2>
 
                   <p className="mt-3 text-sm leading-6 text-[#666666]">
-                    {isVendor
-                      ? "Apply early and prepare your Stylique vendor profile before launch."
-                      : "Get notified when Stylique early access opens in Pretoria."}
+                    Apply to join Stylique and start receiving booking requests from customers across Pretoria.
                   </p>
                 </div>
 
                 <button
                   type="button"
                   onClick={onClose}
-                  aria-label="Close waitlist modal"
+                  aria-label="Close vendor application modal"
                   className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#F6F6F6] text-[#111111] transition-colors hover:bg-[#EEEEEE]"
                 >
                   <X size={18} />
@@ -199,10 +187,9 @@ setStatus({
                   className="black-button group w-full disabled:cursor-not-allowed disabled:opacity-60"
                 >
                   {isSubmitting
-                    ? "Submitting..."
-                    : isVendor
-                      ? "Become a Vendor"
-                      : "Join Waitlist"}
+
+  ? "Submitting..."
+  : "Submit Application"}
 
                   <ArrowRight
                     size={17}

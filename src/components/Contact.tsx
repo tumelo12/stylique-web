@@ -105,8 +105,8 @@ export function Contact() {
             </h2>
 
             <p className="mt-5 max-w-xl text-base leading-8 text-[#666666]">
-              Have a question, partnership idea, vendor application request or
-              launch enquiry? Send us a message and the Stylique team will help.
+              Have a question, partnership idea, need support or want to become
+a Stylique vendor? We'd love to hear from you.
             </p>
 
             <div className="mt-9 grid gap-4">

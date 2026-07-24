@@ -7,23 +7,23 @@ const steps = [
   {
     icon: Search,
     step: "01",
-    title: "Discover beauty professionals",
-    description:
-      "Browse salons, nail techs, makeup artists, braiders and barbers across Pretoria.",
+   title: "Discover Beauty Professionals",
+description:
+  "Browse trusted salons, nail technicians, barbers, makeup artists, spas and skincare professionals near you.",
   },
   {
     icon: CalendarCheck,
     step: "02",
-    title: "Book appointments easily",
-    description:
-      "Choose services, select a suitable time and request bookings directly through the app.",
+title: "Book in Minutes",
+description:
+  "Compare services, choose your preferred time and send booking requests directly through Stylique.",
   },
   {
     icon: MessageCircle,
     step: "03",
-    title: "Chat and manage bookings",
-    description:
-      "Stay connected with vendors through reminders, updates and in-app messaging.",
+   title: "Stay Connected",
+description:
+  "Receive booking updates, chat with beauty professionals and manage upcoming appointments from one place.",
   },
 ];
 
@@ -42,7 +42,7 @@ export function HowItWorks() {
           className="text-center"
         >
           <p className="mb-3 text-sm font-semibold text-neutral-400">
-            Simple booking experience
+           Trusted Beauty Marketplace
           </p>
 
           <h2 className="text-4xl font-extrabold tracking-tight text-[#111111] md:text-5xl">
@@ -50,8 +50,8 @@ export function HowItWorks() {
           </h2>
 
           <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-neutral-500">
-            Stylique makes discovering and booking beauty services simple for
-            both customers and beauty professionals.
+          Download Stylique on Google Play to discover trusted beauty professionals,
+book appointments in minutes, and manage your beauty journey from one app.
           </p>
         </motion.div>
 

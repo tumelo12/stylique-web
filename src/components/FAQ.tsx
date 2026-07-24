@@ -3,37 +3,36 @@
 import { motion } from "framer-motion";
 import { ChevronDown, HelpCircle } from "lucide-react";
 import { useState } from "react";
-
 const faqs = [
   {
-    question: "When is Stylique launching?",
+    question: "Is Stylique available to download?",
     answer:
-      "Stylique is preparing for a Pretoria-first launch. Customers can join the waitlist and vendors can apply for early onboarding before the public launch.",
+      "Yes. Stylique is available on Google Play. Download the app to discover trusted beauty professionals, book appointments and manage your beauty bookings.",
   },
   {
-    question: "Is Stylique only available in Pretoria?",
+    question: "Where is Stylique currently available?",
     answer:
-      "Stylique is starting in Pretoria first so we can build a strong local beauty network before expanding to more areas.",
+      "Stylique is currently focused on Pretoria, connecting customers with trusted local beauty professionals. More cities will be added as the platform grows.",
   },
   {
     question: "How do vendors join Stylique?",
     answer:
-      "Beauty professionals can apply through the vendor onboarding flow. Once approved, they can create their profile, list services and start receiving bookings.",
+      "Beauty professionals can apply through the vendor application process. Once approved, they can create their profile, list services and start receiving booking requests.",
   },
   {
-    question: "Do customers pay inside the app?",
+    question: "How do bookings work?",
     answer:
-      "For launch, customers pay vendors directly at the appointment. Stylique focuses on discovery, booking, reminders, chat and completion verification.",
+      "Browse beauty professionals, compare services, choose your preferred time and send a booking request directly through the Stylique app.",
   },
   {
     question: "How does commission work for vendors?",
     answer:
-      "Stylique tracks commission on completed bookings. Vendors agree to the commission terms during onboarding, and settlements are handled separately.",
+      "Stylique tracks completed bookings and applies commission according to the Vendor Terms accepted during onboarding.",
   },
   {
-    question: "Is the app available to download yet?",
+    question: "How can I contact Stylique?",
     answer:
-      "The app is not publicly launched yet. Join the waitlist to get notified when early access opens.",
+      "You can reach our team through the Contact section of the website for support, partnerships or vendor enquiries.",
   },
 ];
 

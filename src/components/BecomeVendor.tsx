@@ -10,36 +10,35 @@ import {
   Store,
   Users,
 } from "lucide-react";
+import { Smartphone } from "lucide-react";
 
 const cards = [
   {
-    title: "Customer Waitlist",
-    text: "Be first to know when Stylique launches in Pretoria.",
+    title: "Google Play Available",
+    text: "Customers can download Stylique today and start booking beauty services.",
     icon: Users,
   },
   {
-    title: "Vendor Onboarding",
-    text: "Beauty professionals can apply early and prepare their profile.",
+    title: "Vendor Applications",
+    text: "Apply to join Stylique and grow your beauty business with new clients.",
     icon: Store,
   },
   {
-    title: "Pretoria First",
-    text: "Launching locally first before expanding to more areas.",
+    title: "Pretoria",
+    text: "Stylique is currently focused on building a trusted beauty marketplace across Pretoria.",
     icon: MapPin,
   },
 ];
 
-type EarlyAccessProps = {
-  onJoinWaitlist?: () => void;
+type BecomeVendorProps = {
   onBecomeVendor?: () => void;
 };
 
-export function EarlyAccess({
-  onJoinWaitlist,
+export function BecomeVendor({
   onBecomeVendor,
-}: EarlyAccessProps) {
+}: BecomeVendorProps) {
   return (
-    <section id="early-access" className="section-padding bg-white">
+    <section id="become-vendor" className="section-padding bg-white">
       <div className="stylique-container">
         <motion.div
           initial={{ opacity: 0, y: 22 }}
@@ -58,32 +57,22 @@ export function EarlyAccess({
                 <Sparkles size={15} />
 
                 <span className="text-xs font-bold uppercase tracking-[0.22em] text-white/70">
-                  Early access
+                  Vendor Applications
                 </span>
               </div>
 
               <h2 className="font-serif text-4xl font-bold tracking-tight sm:text-5xl">
-                Join Stylique before launch.
+              Grow your beauty business with Stylique.
               </h2>
 
               <p className="mt-5 max-w-xl text-base leading-8 text-white/65">
-                Stylique is preparing for a Pretoria-first launch. Join the
-                customer waitlist or apply as an early vendor before we go live.
+             Stylique is live on Google Play. Customers are already discovering
+beauty professionals, and we're welcoming new vendors to join the
+marketplace.
               </p>
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <button
-                  type="button"
-                  onClick={onJoinWaitlist}
-                  className="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-black !text-black shadow-lg shadow-black/10 transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#F6F6F6] hover:!text-black"
-                >
-                  Join Waitlist
-
-                  <ArrowRight
-                    size={17}
-                    className="ml-2 !text-black"
-                  />
-                </button>
+             
 
                 <button
                   type="button"
@@ -134,21 +123,20 @@ export function EarlyAccess({
 
                 <div>
                   <p className="font-black">
-                    Built for a real Pretoria rollout.
+                    Built for trusted local beauty professionals.
                   </p>
 
                   <p className="mt-1 text-sm leading-6 text-white/60">
-                    Stylique is onboarding real beauty vendors first, then
-                    opening early access to customers in selected Pretoria
-                    areas.
+                    Create your profile, showcase your services, receive booking requests
+and grow your client base through Stylique.
                   </p>
                 </div>
               </div>
 
               <div className="flex items-center gap-2 rounded-full bg-white px-4 py-3 text-sm font-black text-[#111111]">
-                <Mail size={16} />
-                Pretoria launch preparing
-              </div>
+  <Smartphone size={16} />
+  Now Available on Google Play
+</div>
             </div>
           </div>
         </motion.div>
