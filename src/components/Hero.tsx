@@ -5,6 +5,7 @@ import { ArrowRight, Play, Sparkles, Star } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { APP_LINKS } from "../lib/constants";
+import HeroImage from "@/public/images/services/nails_by_hlaudi.jpeg";
 
 type HeroProps = {
   onBecomeVendor?: () => void;
@@ -37,69 +38,106 @@ export function Hero({ onBecomeVendor }: HeroProps) {
             <Sparkles size={16} className="text-[#111111]" />
 
             <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#666666]">
-              Pretoria Beauty Marketplace
-            </span>
+  🎉 Now Live on Google Play & Huawei AppGallery
+</span>
           </motion.div>
 
           <motion.h1
-            variants={fadeUp}
-            className="font-serif text-5xl font-bold tracking-tight text-[#111111] sm:text-6xl lg:text-7xl"
-          >
-            Beauty services near you, booked effortlessly.
-          </motion.h1>
+  variants={fadeUp}
+  className="font-serif text-5xl font-bold tracking-tight text-[#111111] sm:text-6xl lg:text-7xl"
+>
+  Beauty Appointments,
+  <br />
+  Made Effortless.
+</motion.h1>
 
           <motion.p
-            variants={fadeUp}
-            className="mt-6 max-w-2xl text-base leading-8 text-[#666666] sm:text-lg"
-          >
-            Discover trusted salons, nail technicians, barbers, makeup
-            artists, spas and skincare professionals. Compare services,
-            browse reviews and book your next appointment with ease.
-          </motion.p>
+  variants={fadeUp}
+  className="mt-6 max-w-2xl text-base leading-8 text-[#666666] sm:text-lg"
+>
+  Find trusted salons, barbers, nail technicians, makeup artists,
+  spas and skincare professionals across South Africa. Browse
+  verified profiles, compare services and book your next
+  appointment in minutes.
+</motion.p>
 
-          <motion.div
-            variants={fadeUp}
-            className="mt-9 flex flex-col gap-3 sm:flex-row"
-          >
-            <Link
-              href={APP_LINKS.googlePlay}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="black-button group inline-flex items-center justify-center"
-            >
-              Download on Google Play
+         <motion.div
+  variants={fadeUp}
+  className="mt-10 flex flex-col gap-4"
+>
+  <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+    <Link
+      href={APP_LINKS.googlePlay}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="black-button group inline-flex items-center justify-center"
+    >
+      Download on Google Play
 
-              <ArrowRight
-                size={17}
-                className="ml-2 transition-transform group-hover:translate-x-1"
-              />
-            </Link>
+      <ArrowRight
+        size={17}
+        className="ml-2 transition-transform group-hover:translate-x-1"
+      />
+    </Link>
 
-            <button
-              type="button"
-              onClick={onBecomeVendor}
-              className="light-button"
-            >
-              Become a Vendor
-            </button>
-          </motion.div>
+    <Link
+      href={APP_LINKS.huaweiAppGallery}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="light-button group inline-flex items-center justify-center"
+    >
+      Download on AppGallery
 
-          <motion.div
-            variants={fadeUp}
-            id="download"
-            className="mt-8 flex flex-col gap-3 sm:flex-row"
-          >
-            <AppBadge
-              label="Available now"
-              store="Google Play"
-              href={APP_LINKS.googlePlay}
-            />
+      <ArrowRight
+        size={17}
+        className="ml-2 transition-transform group-hover:translate-x-1"
+      />
+    </Link>
+  </div>
 
-            <AppBadge
-              label="Applications open"
-              store="Beauty Vendors"
-            />
-          </motion.div>
+  <button
+    type="button"
+    onClick={onBecomeVendor}
+    className="inline-flex w-fit items-center text-sm font-semibold text-[#111111] transition-all duration-300 hover:translate-x-1 hover:opacity-75"
+  >
+    Become a Stylique Vendor
+
+    <ArrowRight
+      size={16}
+      className="ml-2"
+    />
+  </button>
+</motion.div>
+<motion.div
+  variants={fadeUp}
+  className="mt-8 flex flex-wrap items-center gap-4 text-sm text-[#666666]"
+>
+  <div className="flex items-center gap-2">
+    <Star
+      size={15}
+      fill="#111111"
+      className="text-[#111111]"
+    />
+
+    <span>
+      Trusted by beauty professionals across South Africa
+    </span>
+  </div>
+
+  <span className="hidden h-1 w-1 rounded-full bg-[#CCCCCC] sm:block" />
+
+  <span>✓ Verified Professionals</span>
+
+  <span className="hidden h-1 w-1 rounded-full bg-[#CCCCCC] sm:block" />
+
+  <span>✓ Secure Booking</span>
+
+  <span className="hidden h-1 w-1 rounded-full bg-[#CCCCCC] sm:block" />
+
+  <span>✓ Book in Minutes</span>
+</motion.div>
+
+          
         </motion.div>
 
         <motion.div
@@ -121,8 +159,8 @@ export function Hero({ onBecomeVendor }: HeroProps) {
             className="relative overflow-hidden rounded-[2.5rem] bg-[#F6F6F6] p-3 shadow-2xl shadow-black/10"
           >
             <div className="relative h-[520px] overflow-hidden rounded-[2rem] sm:h-[620px]">
-              <Image
-                src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=1200&auto=format&fit=crop"
+             <Image
+                src={HeroImage}
                 alt="Luxury beauty professional styling a client"
                 fill
                 priority
@@ -137,7 +175,7 @@ export function Hero({ onBecomeVendor }: HeroProps) {
                 </p>
 
                 <h3 className="mt-2 text-xl font-bold text-[#111111]">
-                  Glow Bar Pretoria
+                  Beauty by Hlaudi
                 </h3>
 
                 <p className="mt-1 text-sm text-[#666666]">
