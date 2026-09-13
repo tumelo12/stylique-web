@@ -13,14 +13,7 @@ import {
   Wallet,
 } from "lucide-react";
 
-const checklist = [
-  "Get discovered by nearby customers",
-  "Manage bookings with ease",
-  "Receive direct payments",
-  "Settle simple commissions",
-  "Build reviews and repeat clients",
-  "Dedicated vendor support",
-];
+const checklist = [ "Get discovered by nearby customers", "Manage bookings with ease", "Receive direct payments", "Settle simple commissions", "Build reviews and repeat clients", "Dedicated vendor support", ];
 
 type VendorsProps = {
   onBecomeVendor?: () => void;
@@ -46,8 +39,12 @@ export function Vendors({ onBecomeVendor }: VendorsProps) {
 
           <p className="mt-5 max-w-xl text-base leading-8 text-[#666666]">
             Stylique helps salons, nail techs, makeup artists, braiders,
-            barbers and beauty professionals get discovered, manage bookings,
-            and build repeat customers across Pretoria.
+barbers and beauty professionals get discovered, manage bookings,
+and build repeat customers across Pretoria.
+
+We're currently welcoming new beauty businesses to join our vendor
+waitlist. Once you're ready to onboard, you can complete your full
+vendor application through the Stylique app or web platform.
           </p>
 
           <div className="mt-8 grid gap-3">
@@ -69,7 +66,7 @@ export function Vendors({ onBecomeVendor }: VendorsProps) {
             onClick={onBecomeVendor}
             className="black-button group mt-9"
           >
-            Become a Vendor
+            Join Vendor Waitlist
 
             <ArrowRight
               size={17}

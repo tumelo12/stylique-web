@@ -43,9 +43,12 @@ export function CTA({
               </h2>
 
               <p className="mt-4 max-w-2xl text-base leading-8 text-[#666666]">
-            Stylique is now available on Google Play. Browse beauty services,
+       Stylique is now available on Google Play. Browse beauty services,
 discover trusted professionals and book your next appointment in
 minutes.
+
+Beauty businesses can also join our vendor waitlist and register
+their interest in joining the Stylique marketplace.
               </p>
             </div>
 
@@ -69,7 +72,7 @@ minutes.
                 onClick={onBecomeVendor}
                 className="light-button"
               >
-                Become a Vendor
+                Join Vendor Waitlist
               </button>
             </div>
           </div>

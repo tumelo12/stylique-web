@@ -9,7 +9,7 @@ import { APP_LINKS } from "../lib/constants";
 const stats = [
   { value: "Pretoria", label: "Launch City" },
   { value: "Live", label: "Google Play" },
-  { value: "Open", label: "Vendor Applications" },
+  { value: "Open", label: "Vendor Waitlist" },
 ];
 type AboutProps = {
   onDownload?: () => void;
@@ -162,7 +162,7 @@ book appointments and manage everything in one beautifully designed app.
               <p className="mt-4 max-w-2xl text-sm leading-7 text-white/65 sm:text-base">
               Download Stylique on Google Play to discover trusted beauty
 professionals, compare services and book your next appointment.
-Beauty businesses can also join our growing vendor community.
+Beauty businesses can join our vendor waitlist and register their interest in joining the Stylique marketplace.
               </p>
             </div>
 
@@ -177,11 +177,11 @@ Beauty businesses can also join our growing vendor community.
 </Link>
 
               <button
-                type="button"
-                onClick={onBecomeVendor}
-                className="black-button group bg-white text-[#111111] hover:bg-[#F6F6F6]"
-              >
-                Become a Vendor
+  type="button"
+  onClick={onBecomeVendor}
+  className="black-button group bg-white text-[#111111] hover:bg-[#F6F6F6]"
+>
+  Join Vendor Waitlist
                 <ArrowRight
                   size={17}
                   className="ml-2 transition-transform group-hover:translate-x-1"

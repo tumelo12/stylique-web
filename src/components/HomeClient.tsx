@@ -17,15 +17,12 @@ import { Services } from "@/src/components/Services";
 import { Vendors } from "@/src/components/Vendors";
 import { VendorApplicationModal } from "@/src/components/VendorApplicationModal";
 
-type WaitlistType = "vendor";
 
 export function HomeClient() {
   const [modalOpen, setModalOpen] = useState(false);
- const [waitlistType, setWaitlistType] =
-  useState<WaitlistType>("vendor");
+
 
 function openVendorApplication() {
-  setWaitlistType("vendor");
   setModalOpen(true);
 }
 

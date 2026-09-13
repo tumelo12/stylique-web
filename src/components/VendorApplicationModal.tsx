@@ -5,7 +5,7 @@ import { ArrowRight, CheckCircle2, X } from "lucide-react";
 import { FormEvent, useState } from "react";
 import { trackMetaPixelEvent } from "@/src/lib/metaPixel";
 
-type ApplicationType = "vendor";
+type WaitlistType = "vendor";
 
 type VendorApplicationModalProps = {
   open: boolean;
@@ -38,7 +38,7 @@ export function VendorApplicationModal({
       phoneNumber: String(formData.get("phoneNumber") || "").trim(),
       city: String(formData.get("city") || "Pretoria").trim(),
      type: "vendor",
-source: "website_vendor_application",
+source: "website_vendor_waitlist",
     };
 
     try {
@@ -55,7 +55,7 @@ source: "website_vendor_application",
       if (result.duplicate) {
         setStatus({
           type: "success",
-          message: "You've already submitted a vendor application.",
+          message: "You're already on the Stylique vendor waitlist.",
         });
 
         return;
@@ -72,7 +72,7 @@ form.reset();
 setStatus({
         type: "success",
         message:
-  "Thanks for applying! We'll review your application and contact you soon.",
+ "You're on the list! We'll contact you when your business is ready for onboarding. You can also complete your vendor application through the Stylique app or web platform.",
       });
     } catch (error) {
       setStatus({
@@ -111,15 +111,15 @@ setStatus({
               <div className="mb-6 flex items-start justify-between gap-5">
                 <div>
                   <p className="mb-3 text-xs font-bold uppercase tracking-[0.25em] text-[#666666]">
-                  Vendor Application
+                  Vendor Waitlist
                   </p>
 
                   <h2 className="font-serif text-3xl font-bold leading-tight text-[#111111]">
-                    Become a Stylique Vendor
+                    Join the Stylique Vendor Waitlist
                   </h2>
 
                   <p className="mt-3 text-sm leading-6 text-[#666666]">
-                    Apply to join Stylique and start receiving booking requests from customers across Pretoria.
+                    Stylique is now live. Join our vendor waitlist and we'll let you know when we're ready to onboard your business. You can also complete your vendor application directly through the Stylique app or web platform.
                   </p>
                 </div>
 
@@ -189,7 +189,7 @@ setStatus({
                   {isSubmitting
 
   ? "Submitting..."
-  : "Submit Application"}
+  : "Join Vendor Waitlist"}
 
                   <ArrowRight
                     size={17}
