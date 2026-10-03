@@ -5,16 +5,15 @@ import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-
 import Link from "next/link";
-import { APP_LINKS } from "@/src/lib/constants";
+
 const navItems = [
   { label: "Home", href: "#home" },
   { label: "Services", href: "#services" },
   { label: "About", href: "#about" },
   { label: "For Vendors", href: "#vendors" },
   { label: "For Customers", href: "#customers" },
-{ label: "Become a Vendor", href: "#become-vendor" },
+  { label: "Become a Vendor", href: "#become-vendor" },
   { label: "FAQ", href: "#faq" },
   { label: "Contact", href: "#contact" },
 ];
@@ -41,20 +40,20 @@ export function Navbar() {
       }`}
     >
       <nav className="stylique-container flex h-20 items-center justify-between">
-     <a href="#home" className="flex items-center gap-3">
-  <Image
-    src="/stylique-logo.png"
-    alt="Stylique logo"
-    width={42}
-    height={42}
-    priority
-    className="h-[2.6rem] w-[2.6rem] object-contain"
-  />
+        <a href="#home" className="flex items-center gap-3">
+          <Image
+            src="/stylique-logo.png"
+            alt="Stylique logo"
+            width={42}
+            height={42}
+            priority
+            className="h-[2.6rem] w-[2.6rem] object-contain"
+          />
 
-  <span className="text-[1.05rem] font-black tracking-[0.32em] text-[#111111]">
-    STYLIQUE
-  </span>
-</a>
+          <span className="text-[1.05rem] font-black tracking-[0.32em] text-[#111111]">
+            STYLIQUE
+          </span>
+        </a>
 
         <div className="hidden items-center gap-8 lg:flex">
           {navItems.map((item) => (
@@ -68,17 +67,17 @@ export function Navbar() {
           ))}
         </div>
 
-        <div className="hidden lg:block">
-        <Link
-  href={APP_LINKS.googlePlay}
-  target="_blank"
-  rel="noopener noreferrer"
-  className="black-button"
->
-  Download App
-</Link>
+        {/* Desktop CTA */}
+        <div className="hidden items-center lg:flex">
+          <Link
+            href="https://app.stylique.co.za"
+            className="black-button px-5 py-2 text-sm font-semibold"
+          >
+            Get Started
+          </Link>
         </div>
 
+        {/* Mobile menu button */}
         <button
           type="button"
           aria-label="Open menu"
@@ -135,15 +134,14 @@ export function Navbar() {
                 ))}
               </div>
 
+              {/* Mobile CTA */}
               <Link
-  href={APP_LINKS.googlePlay}
-  target="_blank"
-  rel="noopener noreferrer"
-  onClick={() => setOpen(false)}
-  className="black-button mt-6 flex w-full items-center justify-center"
->
-  Download App
-</Link>
+                href="https://app.stylique.co.za"
+                onClick={() => setOpen(false)}
+                className="black-button mt-6 flex w-full items-center justify-center px-5 py-2 text-sm font-semibold"
+              >
+                Get Started
+              </Link>
             </motion.div>
           </>
         )}

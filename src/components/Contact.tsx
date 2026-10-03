@@ -18,7 +18,7 @@ const contactItems = [
   {
     icon: MapPin,
     label: "Location",
-    value: "Pretoria, South Africa",
+    value: "South Africa",
   },
   {
     icon: Clock,
@@ -106,7 +106,7 @@ export function Contact() {
 
             <p className="mt-5 max-w-xl text-base leading-8 text-[#666666]">
               Have a question, partnership idea, need support or want to become
-a Stylique vendor? We'd love to hear from you.
+              a Stylique vendor? We&apos;d love to hear from you.
             </p>
 
             <div className="mt-9 grid gap-4">

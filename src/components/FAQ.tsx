@@ -3,21 +3,22 @@
 import { motion } from "framer-motion";
 import { ChevronDown, HelpCircle } from "lucide-react";
 import { useState } from "react";
+
 const faqs = [
   {
     question: "Is Stylique available to download?",
     answer:
-      "Yes. Stylique is available on Google Play. Download the app to discover trusted beauty professionals, book appointments and manage your beauty bookings.",
+      "Yes. Stylique is available on Google Play. Download the app to discover beauty professionals, browse services, book appointments and manage your beauty bookings.",
   },
   {
-    question: "Where is Stylique currently available?",
+    question: "Where is Stylique available?",
     answer:
-      "Stylique is currently focused on Pretoria, connecting customers with trusted local beauty professionals. More cities will be added as the platform grows.",
+      "Stylique is live and growing. Customers can discover beauty professionals available on the platform, with more locations and vendors being added as the marketplace expands.",
   },
   {
     question: "How do vendors join Stylique?",
     answer:
-      "Beauty professionals can apply through the vendor application process. Once approved, they can create their profile, list services and start receiving booking requests.",
+      "Beauty professionals can apply to become a Stylique vendor directly through the Stylique app or web platform. Once approved, vendors can create their profile, list their services and start receiving booking requests.",
   },
   {
     question: "How do bookings work?",
@@ -62,7 +63,8 @@ export function FAQ() {
           </h2>
 
           <p className="mt-5 text-base leading-8 text-[#666666]">
-            Clear answers for customers and vendors before Stylique launches.
+            Clear answers for customers and beauty professionals using
+            Stylique.
           </p>
         </motion.div>
 

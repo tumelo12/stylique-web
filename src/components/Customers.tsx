@@ -14,6 +14,8 @@ import {
   Star,
 } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
+import { APP_LINKS } from "@/src/lib/constants";
 
 const checklist = [
   "Find verified beauty professionals",
@@ -23,9 +25,6 @@ const checklist = [
   "Rebook favourites",
   "Secure completion with PIN verification",
 ];
-
-import Link from "next/link";
-import { APP_LINKS } from "@/src/lib/constants";
 
 export function Customers() {
   return (
@@ -87,7 +86,7 @@ export function Customers() {
                 </div>
 
                 <AppVendorCard
-                  image= "/images/services/hair.jpg"
+                  image="/images/services/hair.jpg"
                   name="Onky's Beauty Salon"
                   service="Braids · 2.1 km away"
                   icon={BadgeCheck}
@@ -164,8 +163,8 @@ export function Customers() {
 
           <p className="mt-5 max-w-xl text-base leading-8 text-[#666666]">
             Discover trusted beauty professionals, compare services, book in
-minutes and manage every appointment from confirmation to
-completion.
+            minutes and manage every appointment from confirmation to
+            completion.
           </p>
 
           <div className="mt-8 grid gap-3">
@@ -182,21 +181,22 @@ completion.
             ))}
           </div>
 
-         <div
-  id="customer-download"
-  className="mt-9 flex flex-col gap-3 sm:flex-row"
->
-  <AppBadge
-    label="Available now"
-    store="Google Play"
-    href={APP_LINKS.googlePlay}
-  />
+          <div
+            id="customer-download"
+            className="mt-9 flex flex-col gap-3 sm:flex-row"
+          >
+            <AppBadge
+              label="Available now"
+              store="Stylique Web App"
+              href="https://app.stylique.co.za"
+            />
 
-  <AppBadge
-    label="Applications open"
-    store="Beauty Vendors"
-  />
-</div>
+            <AppBadge
+              label="Available now"
+              store="Google Play"
+              href={APP_LINKS.googlePlay}
+            />
+          </div>
         </motion.div>
       </div>
     </section>
@@ -218,11 +218,11 @@ function AppVendorCard({
     <div className="flex items-center gap-4 rounded-[1.6rem] border border-[#EFEFEF] bg-white p-3 shadow-sm">
       <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-2xl">
         <Image
-  src={image}
-  alt={name}
-  fill
-  className="object-cover grayscale contrast-105 brightness-[0.98]"
-/>
+          src={image}
+          alt={name}
+          fill
+          className="object-cover grayscale contrast-105 brightness-[0.98]"
+        />
       </div>
 
       <div className="min-w-0 flex-1">

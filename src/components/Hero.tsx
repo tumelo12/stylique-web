@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Play, Sparkles, Star } from "lucide-react";
+import { ArrowRight, Sparkles, Star } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { APP_LINKS } from "../lib/constants";
@@ -22,15 +22,19 @@ export function Hero({ onBecomeVendor }: HeroProps) {
       id="home"
       className="relative overflow-hidden bg-white pt-28 sm:pt-32 lg:pt-36"
     >
+      {/* Ambient background */}
       <div className="absolute left-[-8rem] top-24 h-72 w-72 rounded-full bg-[#F6F6F6] blur-3xl" />
       <div className="absolute right-[-10rem] top-32 h-96 w-96 rounded-full bg-black/[0.03] blur-3xl" />
 
       <div className="stylique-container relative grid min-h-[calc(100vh-7rem)] items-center gap-14 pb-20 lg:grid-cols-[1.02fr_0.98fr] lg:gap-16">
+
+        {/* LEFT SIDE */}
         <motion.div
           initial="hidden"
           animate="visible"
           transition={{ staggerChildren: 0.12 }}
         >
+          {/* Status badge */}
           <motion.div
             variants={fadeUp}
             className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#EFEFEF] bg-white px-4 py-2 shadow-sm"
@@ -38,117 +42,121 @@ export function Hero({ onBecomeVendor }: HeroProps) {
             <Sparkles size={16} className="text-[#111111]" />
 
             <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#666666]">
-  🎉 Now Live on Google Play & Huawei AppGallery
-</span>
+              🎉 Now Live on Google Play & Huawei AppGallery
+            </span>
           </motion.div>
 
+          {/* Heading */}
           <motion.h1
-  variants={fadeUp}
-  className="font-serif text-5xl font-bold tracking-tight text-[#111111] sm:text-6xl lg:text-7xl"
->
-  Beauty Appointments,
-  <br />
-  Made Effortless.
-</motion.h1>
+            variants={fadeUp}
+            className="font-serif text-5xl font-bold tracking-tight text-[#111111] sm:text-6xl lg:text-7xl"
+          >
+            Beauty Appointments,
+            <br />
+            Made Effortless.
+          </motion.h1>
 
+          {/* Description */}
           <motion.p
-  variants={fadeUp}
-  className="mt-6 max-w-2xl text-base leading-8 text-[#666666] sm:text-lg"
->
-  Find trusted salons, barbers, nail technicians, makeup artists,
-  spas and skincare professionals across South Africa. Browse
-  verified profiles, compare services and book your next
-  appointment in minutes.
-</motion.p>
+            variants={fadeUp}
+            className="mt-6 max-w-2xl text-base leading-8 text-[#666666] sm:text-lg"
+          >
+            Find trusted salons, barbers, nail technicians, makeup artists,
+            spas and skincare professionals across South Africa. Browse
+            verified profiles, compare services and book your next appointment
+            in minutes.
+          </motion.p>
 
-         <motion.div
-  variants={fadeUp}
-  className="mt-10 flex flex-col gap-4"
->
-  <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-    <Link
-      href={APP_LINKS.googlePlay}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="black-button group inline-flex items-center justify-center"
-    >
-      Download on Google Play
+          {/* CTA buttons */}
+          <motion.div
+            variants={fadeUp}
+            className="mt-10 flex flex-col gap-4"
+          >
+            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <Link
+                href={APP_LINKS.googlePlay}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="black-button group inline-flex items-center justify-center"
+              >
+                Download on Google Play
 
-      <ArrowRight
-        size={17}
-        className="ml-2 transition-transform group-hover:translate-x-1"
-      />
-    </Link>
+                <ArrowRight
+                  size={17}
+                  className="ml-2 transition-transform group-hover:translate-x-1"
+                />
+              </Link>
 
-    <Link
-      href={APP_LINKS.huaweiAppGallery}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="light-button group inline-flex items-center justify-center"
-    >
-      Download on AppGallery
+              <Link
+                href={APP_LINKS.huaweiAppGallery}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="light-button group inline-flex items-center justify-center"
+              >
+                Download on AppGallery
 
-      <ArrowRight
-        size={17}
-        className="ml-2 transition-transform group-hover:translate-x-1"
-      />
-    </Link>
-  </div>
+                <ArrowRight
+                  size={17}
+                  className="ml-2 transition-transform group-hover:translate-x-1"
+                />
+              </Link>
+            </div>
 
-  <button
-    type="button"
-    onClick={onBecomeVendor}
-    className="inline-flex w-fit items-center text-sm font-semibold text-[#111111] transition-all duration-300 hover:translate-x-1 hover:opacity-75"
-  >
-    Become a Stylique Vendor
+            {/* Vendor CTA */}
+            <button
+              type="button"
+              onClick={onBecomeVendor}
+              className="inline-flex w-fit items-center text-sm font-semibold text-[#111111] transition-all duration-300 hover:translate-x-1 hover:opacity-75"
+            >
+              Become a Stylique Vendor
 
-    <ArrowRight
-      size={16}
-      className="ml-2"
-    />
-  </button>
-</motion.div>
-<motion.div
-  variants={fadeUp}
-  className="mt-8 flex flex-wrap items-center gap-4 text-sm text-[#666666]"
->
-  <div className="flex items-center gap-2">
-    <Star
-      size={15}
-      fill="#111111"
-      className="text-[#111111]"
-    />
+              <ArrowRight size={16} className="ml-2" />
+            </button>
+          </motion.div>
 
-    <span>
-      Trusted by beauty professionals across South Africa
-    </span>
-  </div>
+          {/* Trust points */}
+          <motion.div
+            variants={fadeUp}
+            className="mt-8 flex flex-wrap items-center gap-4 text-sm text-[#666666]"
+          >
+            <div className="flex items-center gap-2">
+              <Star
+                size={15}
+                fill="#111111"
+                className="text-[#111111]"
+              />
 
-  <span className="hidden h-1 w-1 rounded-full bg-[#CCCCCC] sm:block" />
+              <span>
+                Connecting beauty professionals across South Africa
+              </span>
+            </div>
 
-  <span>✓ Verified Professionals</span>
+            <span className="hidden h-1 w-1 rounded-full bg-[#CCCCCC] sm:block" />
 
-  <span className="hidden h-1 w-1 rounded-full bg-[#CCCCCC] sm:block" />
+            <span>✓ Verified Professionals</span>
 
-  <span>✓ Secure Booking</span>
+            <span className="hidden h-1 w-1 rounded-full bg-[#CCCCCC] sm:block" />
 
-  <span className="hidden h-1 w-1 rounded-full bg-[#CCCCCC] sm:block" />
+            <span>✓ Secure Booking</span>
 
-  <span>✓ Book in Minutes</span>
-</motion.div>
+            <span className="hidden h-1 w-1 rounded-full bg-[#CCCCCC] sm:block" />
 
-          
+            <span>✓ Book in Minutes</span>
+          </motion.div>
         </motion.div>
 
+        {/* RIGHT SIDE */}
         <motion.div
           initial={{ opacity: 0, scale: 0.96, y: 24 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="relative"
         >
+          {/* Background shapes */}
           <div className="absolute -left-8 top-12 h-64 w-64 rounded-full bg-black/[0.03]" />
           <div className="absolute -right-8 bottom-12 h-52 w-52 rounded-full bg-[#F6F6F6]" />
 
+          {/* Main image card */}
           <motion.div
             animate={{ y: [0, -12, 0] }}
             transition={{
@@ -159,9 +167,9 @@ export function Hero({ onBecomeVendor }: HeroProps) {
             className="relative overflow-hidden rounded-[2.5rem] bg-[#F6F6F6] p-3 shadow-2xl shadow-black/10"
           >
             <div className="relative h-[520px] overflow-hidden rounded-[2rem] sm:h-[620px]">
-             <Image
+              <Image
                 src={HeroImage}
-                alt="Luxury beauty professional styling a client"
+                alt="Beauty professional providing a beauty service"
                 fill
                 priority
                 className="object-cover grayscale contrast-105 brightness-[0.98]"
@@ -169,9 +177,10 @@ export function Hero({ onBecomeVendor }: HeroProps) {
 
               <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
 
+              {/* Image information card */}
               <div className="absolute bottom-5 left-5 right-5 rounded-[1.6rem] border border-white/30 bg-white/80 p-5 shadow-xl backdrop-blur-xl">
                 <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#666666]">
-                  Trending on Stylique
+                  Discover on Stylique
                 </p>
 
                 <h3 className="mt-2 text-xl font-bold text-[#111111]">
@@ -179,12 +188,14 @@ export function Hero({ onBecomeVendor }: HeroProps) {
                 </h3>
 
                 <p className="mt-1 text-sm text-[#666666]">
-                  Book trusted beauty services in just a few taps.
+                  Discover and book trusted beauty services in just a few taps.
                 </p>
               </div>
             </div>
           </motion.div>
-                    <FloatingCard
+
+          {/* Floating cards */}
+          <FloatingCard
             className="-left-4 top-10"
             title="4.9 Rating"
             text="Verified professionals"
@@ -196,8 +207,12 @@ export function Hero({ onBecomeVendor }: HeroProps) {
             text="Average booking time"
           />
 
+          {/* Floating star */}
           <motion.div
-            animate={{ rotate: [0, 8, 0], scale: [1, 1.08, 1] }}
+            animate={{
+              rotate: [0, 8, 0],
+              scale: [1, 1.08, 1],
+            }}
             transition={{
               duration: 4,
               repeat: Infinity,
@@ -211,52 +226,6 @@ export function Hero({ onBecomeVendor }: HeroProps) {
       </div>
     </section>
   );
-}
-
-function AppBadge({
-  label,
-  store,
-  href,
-}: {
-  label: string;
-  store: string;
-  href?: string;
-}) {
-  const content = (
-    <>
-      <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#111111] text-white">
-        <Play size={14} fill="white" />
-      </span>
-
-      <span>
-        <span className="block text-[11px] font-medium text-[#666666]">
-          {label}
-        </span>
-
-        <span className="block text-sm font-bold text-[#111111]">
-          {store}
-        </span>
-      </span>
-    </>
-  );
-
-  const className =
-    "flex w-full items-center gap-3 rounded-2xl border border-[#EFEFEF] bg-white px-5 py-3 text-left shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md sm:w-auto";
-
-  if (href) {
-    return (
-      <Link
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={className}
-      >
-        {content}
-      </Link>
-    );
-  }
-
-  return <div className={className}>{content}</div>;
 }
 
 function FloatingCard({

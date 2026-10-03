@@ -4,37 +4,31 @@ import { motion } from "framer-motion";
 import {
   ArrowRight,
   BadgeCheck,
-  MapPin,
   Sparkles,
   Store,
   Users,
 } from "lucide-react";
+import Link from "next/link";
 
 const cards = [
   {
-    title: "Join the Waitlist",
-    text: "Tell us about your beauty business and register your interest in joining Stylique.",
+    title: "Create Your Vendor Profile",
+    text: "Tell us about your beauty business, the services you offer and what makes your business special.",
     icon: Users,
   },
   {
     title: "Complete Your Application",
-    text: "When you're ready to onboard, complete your full vendor application through the Stylique app or web platform.",
+    text: "Submit your vendor application directly through the Stylique app or web platform.",
     icon: Store,
   },
   {
-    title: "Grow in Pretoria",
-    text: "Get discovered by customers looking for trusted beauty professionals in Pretoria.",
-    icon: MapPin,
+    title: "Grow with Stylique",
+    text: "Get discovered by customers looking for trusted beauty professionals and make it easier for them to book with you.",
+    icon: Sparkles,
   },
 ];
 
-type BecomeVendorProps = {
-  onBecomeVendor?: () => void;
-};
-
-export function BecomeVendor({
-  onBecomeVendor,
-}: BecomeVendorProps) {
+export function BecomeVendor() {
   return (
     <section id="become-vendor" className="section-padding bg-white">
       <div className="stylique-container">
@@ -55,7 +49,7 @@ export function BecomeVendor({
                 <Sparkles size={15} />
 
                 <span className="text-xs font-bold uppercase tracking-[0.22em] text-white/70">
-                  Vendor Waitlist
+                  Vendor Applications Open
                 </span>
               </div>
 
@@ -64,29 +58,30 @@ export function BecomeVendor({
               </h2>
 
               <p className="mt-5 max-w-xl text-base leading-8 text-white/65">
-                Stylique is now live in Pretoria and we're welcoming beauty
-                professionals who want to join our growing marketplace.
+                Stylique is live and welcoming beauty professionals who want to
+                grow their business, reach new customers and become part of a
+                growing beauty marketplace.
               </p>
 
               <p className="mt-4 max-w-xl text-base leading-8 text-white/65">
-                Join our vendor waitlist today. When you're ready to onboard,
-                you can complete your full vendor application through the
-                Stylique app or web platform.
+                Whether you're a salon, nail technician, makeup artist,
+                braider, barber, spa or skincare specialist, you can apply to
+                become a Stylique vendor and start building your presence on
+                the platform.
               </p>
 
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <button
-                  type="button"
-                  onClick={onBecomeVendor}
-                  className="group inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-black text-[#111111] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#F6F6F6]"
-                >
-                  Join Vendor Waitlist
+             <Link
+  href="https://app.stylique.co.za"
+  className="group inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-sm font-black !text-[#111111] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#F6F6F6]"
+>
+  Become a Vendor
 
-                  <ArrowRight
-                    size={17}
-                    className="ml-2 transition-transform group-hover:translate-x-1"
-                  />
-                </button>
+  <ArrowRight
+    size={17}
+    className="ml-2 !text-[#111111] transition-transform group-hover:translate-x-1"
+  />
+</Link>
               </div>
             </div>
 
@@ -133,16 +128,16 @@ export function BecomeVendor({
                   </p>
 
                   <p className="mt-1 text-sm leading-6 text-white/60">
-                    Join the waitlist first. We'll guide you through the
-                    onboarding process and let you know when you can complete
-                    your vendor application.
+                    Apply directly through the Stylique app or web platform.
+                    Tell us about your business and start building your
+                    presence on Stylique.
                   </p>
                 </div>
               </div>
 
               <div className="flex items-center gap-2 rounded-full bg-white px-4 py-3 text-sm font-black text-[#111111]">
                 <Store size={16} />
-                Vendor Waitlist Open
+                Applications Open
               </div>
             </div>
           </div>

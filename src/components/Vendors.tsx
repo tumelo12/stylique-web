@@ -8,18 +8,22 @@ import {
   CalendarCheck,
   Check,
   Headphones,
-  MapPin,
   MessageCircle,
+  Store,
   Wallet,
 } from "lucide-react";
+import Link from "next/link";
 
-const checklist = [ "Get discovered by nearby customers", "Manage bookings with ease", "Receive direct payments", "Settle simple commissions", "Build reviews and repeat clients", "Dedicated vendor support", ];
+const checklist = [
+  "Get discovered by customers",
+  "Manage bookings with ease",
+  "Receive direct payments",
+  "Settle simple commissions",
+  "Build reviews and repeat clients",
+  "Dedicated vendor support",
+];
 
-type VendorsProps = {
-  onBecomeVendor?: () => void;
-};
-
-export function Vendors({ onBecomeVendor }: VendorsProps) {
+export function Vendors() {
   return (
     <section id="vendors" className="section-padding bg-white">
       <div className="stylique-container grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
@@ -39,12 +43,14 @@ export function Vendors({ onBecomeVendor }: VendorsProps) {
 
           <p className="mt-5 max-w-xl text-base leading-8 text-[#666666]">
             Stylique helps salons, nail techs, makeup artists, braiders,
-barbers and beauty professionals get discovered, manage bookings,
-and build repeat customers across Pretoria.
+            barbers, spas and beauty professionals get discovered, manage
+            bookings and build repeat customers.
+          </p>
 
-We're currently welcoming new beauty businesses to join our vendor
-waitlist. Once you're ready to onboard, you can complete your full
-vendor application through the Stylique app or web platform.
+          <p className="mt-4 max-w-xl text-base leading-8 text-[#666666]">
+            We're welcoming beauty businesses to join the Stylique marketplace.
+            Create your vendor profile, complete your application and start
+            building your presence on the platform.
           </p>
 
           <div className="mt-8 grid gap-3">
@@ -61,18 +67,17 @@ vendor application through the Stylique app or web platform.
             ))}
           </div>
 
-          <button
-            type="button"
-            onClick={onBecomeVendor}
-            className="black-button group mt-9"
-          >
-            Join Vendor Waitlist
+         <Link
+  href="https://app.stylique.co.za"
+  className="black-button group mt-9 inline-flex items-center"
+>
+  Become a Vendor
 
-            <ArrowRight
-              size={17}
-              className="ml-2 transition-transform group-hover:translate-x-1"
-            />
-          </button>
+  <ArrowRight
+    size={17}
+    className="ml-2 transition-transform group-hover:translate-x-1"
+  />
+</Link>
         </motion.div>
 
         <motion.div
@@ -97,7 +102,7 @@ vendor application through the Stylique app or web platform.
                   </p>
 
                   <h3 className="mt-1 text-lg font-black text-[#111111]">
-                    Glow Bar Pretoria
+                    Your Beauty Business
                   </h3>
                 </div>
 
@@ -144,9 +149,9 @@ vendor application through the Stylique app or web platform.
                 />
 
                 <DashboardRow
-                  icon={MapPin}
-                  title="Nearby visibility"
-                  text="Showing to customers in Pretoria"
+                  icon={Store}
+                  title="Marketplace visibility"
+                  text="Your business is visible to customers"
                 />
               </div>
             </div>
@@ -154,7 +159,11 @@ vendor application through the Stylique app or web platform.
 
           <motion.div
             animate={{ y: [0, -10, 0] }}
-            transition={{ duration: 4.2, repeat: Infinity, ease: "easeInOut" }}
+            transition={{
+              duration: 4.2,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
             className="absolute -left-4 top-24 hidden rounded-3xl border border-[#EFEFEF] bg-white p-4 shadow-xl sm:block"
           >
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#666666]">
@@ -168,7 +177,11 @@ vendor application through the Stylique app or web platform.
 
           <motion.div
             animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut" }}
+            transition={{
+              duration: 4.8,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
             className="absolute -right-4 bottom-20 hidden rounded-3xl border border-[#EFEFEF] bg-white p-4 shadow-xl sm:block"
           >
             <div className="flex items-center gap-3">

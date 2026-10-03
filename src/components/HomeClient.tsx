@@ -41,19 +41,18 @@ function openVendorApplication() {
       <Services />
 
      <CTA
-  onBecomeVendor={openVendorApplication}
+  
 />
 
-      <Vendors onBecomeVendor={openVendorApplication} />
+      <Vendors  />
 
       <Customers />
 
 <About
-  onBecomeVendor={openVendorApplication}
 />
 
       <BecomeVendor
-  onBecomeVendor={openVendorApplication}
+  
 />
 
       <FAQ />

@@ -1,13 +1,18 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { BadgeCheck, BellRing, CalendarCheck, MessageCircle } from "lucide-react";
+import {
+  BadgeCheck,
+  BellRing,
+  CalendarCheck,
+  MessageCircle,
+} from "lucide-react";
 
 const features = [
   {
-    title: "Verified Professionals",
+    title: "Trusted Professionals",
     description:
-      "Discover trusted salons, barbers, nail technicians and beauty experts with confidence.",
+      "Discover salons, barbers, nail technicians and beauty professionals with confidence.",
     icon: BadgeCheck,
   },
   {
@@ -19,7 +24,7 @@ const features = [
   {
     title: "Booking Updates",
     description:
-      "Stay informed with real-time booking confirmations, reminders and appointment updates.",
+      "Stay informed with booking confirmations, reminders and appointment updates.",
     icon: BellRing,
   },
   {

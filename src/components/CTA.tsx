@@ -3,17 +3,8 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
 import Link from "next/link";
-import { APP_LINKS } from "../lib/constants";
 
-type CTAProps = {
-  onJoinWaitlist?: () => void;
-  onBecomeVendor?: () => void;
-};
-
-export function CTA({
-  onJoinWaitlist,
-  onBecomeVendor,
-}: CTAProps) {
+export function CTA() {
   return (
     <section className="bg-white pb-20 sm:pb-24 lg:pb-28">
       <div className="stylique-container">
@@ -34,46 +25,44 @@ export function CTA({
                 <Sparkles size={15} />
 
                 <span className="text-xs font-bold uppercase tracking-[0.22em] text-[#666666]">
-                Now Available
+                  Now Live
                 </span>
               </div>
 
               <h2 className="font-serif text-4xl font-bold tracking-tight text-[#111111] sm:text-5xl">
-               Download Stylique Today
+                Get started with Stylique
               </h2>
 
               <p className="mt-4 max-w-2xl text-base leading-8 text-[#666666]">
-       Stylique is now available on Google Play. Browse beauty services,
-discover trusted professionals and book your next appointment in
-minutes.
+                Discover trusted beauty professionals, explore services and
+                book your next appointment through Stylique.
+              </p>
 
-Beauty businesses can also join our vendor waitlist and register
-their interest in joining the Stylique marketplace.
+              <p className="mt-3 max-w-2xl text-base leading-8 text-[#666666]">
+                Beauty businesses can also apply to become Stylique vendors and
+                start growing their business on the marketplace.
               </p>
             </div>
 
             <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
               <Link
-  href={APP_LINKS.googlePlay}
-  target="_blank"
-  rel="noopener noreferrer"
-  className="black-button group inline-flex items-center justify-center"
->
-  Download on Google Play
-
-  <ArrowRight
-    size={17}
-    className="ml-2 transition-transform group-hover:translate-x-1"
-  />
-</Link>
-
-              <button
-                type="button"
-                onClick={onBecomeVendor}
-                className="light-button"
+                href="https://app.stylique.co.za"
+                className="black-button group inline-flex items-center justify-center"
               >
-                Join Vendor Waitlist
-              </button>
+                Get Started
+
+                <ArrowRight
+                  size={17}
+                  className="ml-2 transition-transform group-hover:translate-x-1"
+                />
+              </Link>
+
+              <Link
+                href="https://app.stylique.co.za"
+                className="light-button inline-flex items-center justify-center"
+              >
+                Become a Vendor
+              </Link>
             </div>
           </div>
         </motion.div>

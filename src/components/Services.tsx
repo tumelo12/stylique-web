@@ -14,8 +14,7 @@ const services = [
   {
     title: "Hair & Braids",
     description: "Braids, wigs, styling and treatments.",
-    image:
-      "/images/services/hair.jpg",
+    image: "/images/services/hair.jpg",
     icon: Sparkles,
   },
   {
@@ -63,7 +62,7 @@ export function Services() {
           </div>
 
           <p className="max-w-md text-sm leading-7 text-[#666666] sm:text-base">
-            Explore trusted beauty services across Pretoria, from everyday
+            Explore trusted beauty services across South Africa, from everyday
             maintenance to special occasion glam.
           </p>
         </motion.div>
@@ -83,13 +82,13 @@ export function Services() {
                 className="group overflow-hidden rounded-[2rem] border border-[#EFEFEF] bg-white shadow-sm transition-all duration-300 hover:shadow-2xl hover:shadow-black/10"
               >
                 <div className="relative h-64 overflow-hidden bg-[#F6F6F6] lg:h-72">
-  <Image
-    src={service.image}
-    alt={service.title}
-    fill
-    className="object-cover grayscale contrast-105 brightness-[0.98] transition-transform duration-700 group-hover:scale-110"
-    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 20vw"
-  />
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    className="object-cover grayscale contrast-105 brightness-[0.98] transition-transform duration-700 group-hover:scale-110"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 20vw"
+                  />
 
                   <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
 

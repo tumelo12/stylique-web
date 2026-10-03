@@ -4,21 +4,16 @@ import { motion } from "framer-motion";
 import { ArrowRight, BadgeCheck, Sparkles, Users } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { APP_LINKS } from "../lib/constants";
 
 const stats = [
-  { value: "Pretoria", label: "Launch City" },
-  { value: "Live", label: "Google Play" },
-  { value: "Open", label: "Vendor Waitlist" },
+  { value: "Growing", label: "Beauty Network" },
+  { value: "Live", label: "Platform" },
+  { value: "Open", label: "For Vendors" },
 ];
-type AboutProps = {
-  onDownload?: () => void;
-  onBecomeVendor?: () => void;
-};
 
-export function About({ onDownload, onBecomeVendor }: AboutProps) {
+export function About() {
   return (
-    <section id="about" className="section-padding bg-white">
+    <section id="about" className="scroll-mt-28 section-padding bg-white">
       <div className="stylique-container">
         <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
           <motion.div
@@ -42,8 +37,9 @@ export function About({ onDownload, onBecomeVendor }: AboutProps) {
             </p>
 
             <p className="mt-4 max-w-xl text-base leading-8 text-[#666666]">
-              Customers can browse services, discover trusted beauty professionals,
-book appointments and manage everything in one beautifully designed app.
+              Customers can browse services, discover trusted beauty
+              professionals, book appointments and manage everything in one
+              beautifully designed app.
             </p>
 
             <div className="mt-8 grid gap-4 sm:grid-cols-3">
@@ -55,6 +51,7 @@ book appointments and manage everything in one beautifully designed app.
                   <p className="text-2xl font-black text-[#111111]">
                     {stat.value}
                   </p>
+
                   <p className="mt-1 text-xs font-semibold uppercase tracking-[0.14em] text-[#666666]">
                     {stat.label}
                   </p>
@@ -113,12 +110,14 @@ book appointments and manage everything in one beautifully designed app.
                   <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#111111] text-white">
                     <BadgeCheck size={18} />
                   </span>
+
                   <div>
                     <p className="text-sm font-black text-[#111111]">
                       Trusted beauty network
                     </p>
+
                     <p className="text-xs text-[#666666]">
-                      Verified vendors across Pretoria
+                      Verified vendors on Stylique
                     </p>
                   </div>
                 </div>
@@ -150,8 +149,9 @@ book appointments and manage everything in one beautifully designed app.
             <div>
               <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2">
                 <Users size={15} />
+
                 <span className="text-xs font-bold uppercase tracking-[0.22em] text-white/70">
-                  Download Stylique Today
+                  Now Live on Stylique
                 </span>
               </div>
 
@@ -160,33 +160,32 @@ book appointments and manage everything in one beautifully designed app.
               </h3>
 
               <p className="mt-4 max-w-2xl text-sm leading-7 text-white/65 sm:text-base">
-              Download Stylique on Google Play to discover trusted beauty
-professionals, compare services and book your next appointment.
-Beauty businesses can join our vendor waitlist and register their interest in joining the Stylique marketplace.
+                Discover trusted beauty professionals, explore services and
+                book your next appointment through Stylique. Beauty businesses
+                can now apply to become Stylique vendors and grow their
+                business on the marketplace.
               </p>
             </div>
 
             <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
               <Link
-  href={APP_LINKS.googlePlay}
-  target="_blank"
-  rel="noopener noreferrer"
-  className="light-button inline-flex items-center justify-center"
->
-  Download Now
-</Link>
+                href="https://app.stylique.co.za"
+                className="light-button inline-flex items-center justify-center"
+              >
+                Get Started
+              </Link>
 
-              <button
-  type="button"
-  onClick={onBecomeVendor}
-  className="black-button group bg-white text-[#111111] hover:bg-[#F6F6F6]"
->
-  Join Vendor Waitlist
+              <Link
+                href="https://app.stylique.co.za"
+                className="black-button group bg-white text-[#111111] hover:bg-[#F6F6F6]"
+              >
+                Become a Vendor
+
                 <ArrowRight
                   size={17}
                   className="ml-2 transition-transform group-hover:translate-x-1"
                 />
-              </button>
+              </Link>
             </div>
           </div>
         </motion.div>

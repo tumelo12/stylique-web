@@ -6,9 +6,9 @@ import { MapPin, Sparkles, Users } from "lucide-react";
 const items = [
   {
     icon: MapPin,
-    title: "Available in Pretoria",
+    title: "Beauty Professionals Near You",
     description:
-      "Stylique is currently helping customers discover trusted beauty professionals across Pretoria.",
+      "Discover salons, nail technicians, barbers, makeup artists, spas and skincare professionals near you.",
   },
   {
     icon: Users,
